@@ -10,70 +10,85 @@
 
 <body>
 
-  <!-- 🌌 CINEMATIC NIGHT SKY -->
-  <canvas id="space"></canvas>
-
-  <!-- 🌫️ NEBULA / FOG LAYER -->
-  <div class="nebula"></div>
-
-  <!-- 🌙 MOON GLOW -->
-  <div class="moon"></div>
-
-  <!-- 🌃 BACKGROUND IMAGES -->
-  <div class="background">
-    <img src="bg1.jpg" class="bg-image layer slow">
-    <img src="bg2.jpg" class="bg-image layer medium">
-    <img src="bg3.jpg" class="bg-image layer fast">
-    <img src="bg4.jpg" class="bg-image layer moon-layer">
+  <!-- 🌿 AESTHETIC BACKGROUND LAYERS -->
+  <div class="aesthetic-bg">
+    <div class="gradient-layer"></div>
+    <div class="noise-layer"></div>
+    <div class="light-orbs"></div>
   </div>
 
   <!-- MAIN CONTENT -->
   <main class="content">
 
     <!-- HERO -->
-    <header class="hero section">
+    <header class="hero">
       <h1>GodSpell</h1>
-      <p class="tagline">A calm place for unity, friendship & growth</p>
+      <p class="tagline">
+        From one dream, built with patience — now a family.
+      </p>
 
       <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
-        ✨ Join Our Discord
+        Join Our Discord
       </a>
     </header>
+
+    <!-- STORY / HISTORY -->
+    <section class="section">
+      <h2>📜 The Origin of GodSpell</h2>
+
+      <div class="card wide">
+        <p>
+          GodSpell began with <strong>Sam</strong>, grinding alone with nothing
+          but an idea and determination. There were no members, no recognition,
+          only consistency and belief.
+        </p>
+
+        <p>
+          Slowly, people noticed. Conversations turned into connections,
+          and connections turned into a family.
+        </p>
+
+        <p>
+          Today, GodSpell stands not as a server — but as a place where
+          growth, respect, and loyalty matter.
+        </p>
+      </div>
+    </section>
 
     <!-- LEADERSHIP -->
     <section class="section">
       <h2>👑 Leadership</h2>
 
       <div class="card">
-        <h3>👑 Leaders</h3>
-        <ol>
+        <h3>Leaders</h3>
+        <ul>
           <li>Sam</li>
           <li>Bronzey</li>
-        </ol>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>🛠️ Developer</h3>
-        <ol>
+        <h3>Developer</h3>
+        <ul>
           <li>DeadSlot</li>
-        </ol>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>🛡️ Moderator</h3>
-        <ol>
+        <h3>Moderator</h3>
+        <ul>
           <li>TheGod</li>
-        </ol>
+        </ul>
       </div>
     </section>
 
-    <!-- CORE MEMBERS -->
+    <!-- MEMBERS -->
     <section class="section">
-      <h2>🌱 Core Members</h2>
+      <h2>🌱 Members</h2>
 
-      <details class="card wide member-toggle">
-        <summary>Tap to see Core Members</summary>
-        <ol>
+      <details class="card wide">
+        <summary>Core Members</summary>
+        <ul>
           <li>PIPIPPO</li>
           <li>AthleteCR7</li>
           <li>BladeOnChoppa</li>
@@ -86,46 +101,41 @@
           <li>sir_spectro</li>
           <li>Eight</li>
           <li>walidwolly09</li>
-        </ol>
+        </ul>
       </details>
-    </section>
 
-    <!-- TRIAL MEMBERS -->
-    <section class="section">
-      <h2>🍃 Trial Members</h2>
-
-      <details class="card member-toggle">
-        <summary>Tap to see Trial Members</summary>
-        <ol>
+      <details class="card wide">
+        <summary>Trial Members</summary>
+        <ul>
           <li>VannahX</li>
           <li>MoonSukes</li>
           <li>blazacooks</li>
           <li>BarGaming_</li>
           <li>KrishnaYt_129</li>
           <li>Slayer_of_Terra</li>
-        </ol>
+        </ul>
       </details>
     </section>
 
-    <!-- ALLIED CLANS -->
+    <!-- ALLIES -->
     <section class="section">
-      <h2>🤝 Allied Clans</h2>
+      <h2>🤝 Allies</h2>
 
       <div class="card">
-        <h3>🛡️ Withers</h3>
-        <p>Leader: <strong>shubh_68</strong></p>
-        <p>Co-Leader: <strong>pmjk</strong></p>
+        <h3>Withers</h3>
+        <p>Leader: shubh_68</p>
+        <p>Co-Leader: pmjk</p>
       </div>
 
       <div class="card">
-        <h3>🌪️ Vortex</h3>
-        <p>Leaders: <strong>panther100</strong> & <strong>Dibson</strong></p>
+        <h3>Vortex</h3>
+        <p>Leaders: panther100 & Dibson</p>
       </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="section">
-      <p>Built calmly by</p>
+    <footer>
+      <p>Built with patience by</p>
       <h3>DeadSlot</h3>
       <p>© 2026 GodSpell</p>
     </footer>
@@ -134,6 +144,5 @@
 
   <!-- MAIN JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
