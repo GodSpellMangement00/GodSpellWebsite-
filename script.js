@@ -1,64 +1,59 @@
-/* ==================================
-   INTERACTIVE BUBBLES SYSTEM
-   CLICK + TRAIL + SCROLL
-================================== */
+/* =========================
+   SCROLL REVEAL (AESTHETIC)
+========================= */
 
-const colors = [
-  "rgba(170,190,255,0.6)",
-  "rgba(140,200,255,0.6)",
-  "rgba(200,170,255,0.6)",
-  "rgba(150,220,255,0.6)"
-];
+const revealItems = document.querySelectorAll(
+  ".section, .card, footer"
+);
+
+const revealObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+revealItems.forEach(el => {
+  el.classList.add("reveal");
+  revealObserver.observe(el);
+});
+
+/* =========================
+   CLICK BUBBLES (MINIMAL)
+========================= */
 
 function createBubble(x, y) {
   const bubble = document.createElement("span");
   bubble.className = "bubble";
 
-  const size = Math.random() * 18 + 10;
+  const size = Math.random() * 12 + 6;
   bubble.style.width = size + "px";
   bubble.style.height = size + "px";
   bubble.style.left = x - size / 2 + "px";
   bubble.style.top = y - size / 2 + "px";
 
-  bubble.style.background =
-    colors[Math.floor(Math.random() * colors.length)];
-
   document.body.appendChild(bubble);
-
-  setTimeout(() => bubble.remove(), 1800);
+  setTimeout(() => bubble.remove(), 1200);
 }
 
-/* CLICK / TAP */
-document.addEventListener("click", (e) => {
-  for (let i = 0; i < 3; i++) {
-    setTimeout(() => {
-      createBubble(
-        e.clientX + Math.random() * 20 - 10,
-        e.clientY + Math.random() * 20 - 10
-      );
-    }, i * 60);
-  }
+document.addEventListener("click", e => {
+  createBubble(e.clientX, e.clientY);
 });
 
-/* MOUSE / FINGER TRAIL */
-let lastMove = 0;
-document.addEventListener("mousemove", (e) => {
-  const now = Date.now();
-  if (now - lastMove > 70) {
-    lastMove = now;
-    createBubble(e.clientX, e.clientY);
-  }
-});
+/* =========================
+   HOVER LIFT (CARDS)
+========================= */
 
-/* SCROLL BUBBLES */
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-  const now = Date.now();
-  if (now - lastScroll > 150) {
-    lastScroll = now;
-    createBubble(
-      Math.random() * window.innerWidth,
-      window.innerHeight - 40
-    );
-  }
+document.querySelectorAll(".card").forEach(card => {
+  card.addEventListener("mouseenter", () => {
+    card.style.transform = "translateY(-6px)";
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "translateY(0)";
+  });
 });
