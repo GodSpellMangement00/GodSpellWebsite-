@@ -4,110 +4,132 @@
   <meta charset="UTF-8">
   <title>GodSpell</title>
 
-  <!-- LINK CSS -->
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- BACKGROUND CANVAS -->
-  <canvas id="bg"></canvas>
+  <!-- 🌌 BACKGROUND LAYERS -->
+  <div class="background">
+    <img src="bg1.jpg" class="bg-image layer slow">
+    <img src="bg2.jpg" class="bg-image layer medium">
+    <img src="bg3.jpg" class="bg-image layer fast">
+    <img src="bg4.jpg" class="bg-image layer moon">
+    
+    <!-- STAR CANVAS -->
+    <canvas id="stars"></canvas>
+  </div>
 
-  <!-- HERO -->
-  <header class="hero section">
-    <h1>GodSpell</h1>
-    <p class="tagline">A calm place for unity, friendship & growth</p>
+  <!-- CONTENT -->
+  <main class="content">
 
-    <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
-      🌿 Join Our Discord
-    </a>
-  </header>
+    <!-- HERO -->
+    <header class="hero section">
+      <h1>GodSpell</h1>
+      <p class="tagline">A calm place for unity, friendship & growth</p>
 
-  <!-- LEADERSHIP -->
-  <section class="section">
-    <h2>👑 Leadership</h2>
+      <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
+        ✨ Join Our Discord
+      </a>
+    </header>
 
-    <div class="card">
-      <h3>👑 Leaders</h3>
-      <ol>
-        <li>Sam</li>
-        <li>Bronzey</li>
-      </ol>
-    </div>
+    <!-- LEADERSHIP -->
+    <section class="section">
+      <h2>👑 Leadership</h2>
 
-    <div class="card">
-      <h3>🛠️ Developer</h3>
-      <ol>
-        <li>DeadSlot</li>
-      </ol>
-    </div>
+      <div class="card">
+        <h3>👑 Leaders</h3>
+        <ol>
+          <li>Sam</li>
+          <li>Bronzey</li>
+        </ol>
+      </div>
 
-    <div class="card">
-      <h3>🛡️ Moderator</h3>
-      <ol>
-        <li>TheGod</li>
-      </ol>
-    </div>
-  </section>
+      <div class="card">
+        <h3>🛠️ Developer</h3>
+        <ol>
+          <li>DeadSlot</li>
+        </ol>
+      </div>
 
-  <!-- CORE MEMBERS -->
-  <section class="section soft">
-    <h2>🌱 Core Members</h2>
+      <div class="card">
+        <h3>🛡️ Moderator</h3>
+        <ol>
+          <li>TheGod</li>
+        </ol>
+      </div>
+    </section>
 
-    <details class="card wide member-toggle">
-      <summary>Tap to see Core Members 🌿</summary>
-      <ol>
-        <li>PIPIPPO</li>
-        <li>AthleteCR7</li>
-        <li>BladeOnChoppa</li>
-        <li>Minato672</li>
-        <li>Devilsking1</li>
-        <li>MrBeast_07</li>
-        <li>Slayerknight69</li>
-        <li>cottoncloud01</li>
-        <li>Pro_Dreamy</li>
-        <li>sir_spectro</li>
-        <li>Eight</li>
-        <li>walidwolly09</li>
-      </ol>
-    </details>
-  </section>
+    <!-- CORE MEMBERS -->
+    <section class="section">
+      <h2>🌱 Core Members</h2>
 
-  <!-- TRIAL MEMBERS -->
-  <section class="section">
-    <h2>🍃 Trial Members</h2>
+      <details class="card wide member-toggle">
+        <summary>Tap to see Core Members ✨</summary>
+        <ol>
+          <li>PIPIPPO</li>
+          <li>AthleteCR7</li>
+          <li>BladeOnChoppa</li>
+          <li>Minato672</li>
+          <li>Devilsking1</li>
+          <li>MrBeast_07</li>
+          <li>Slayerknight69</li>
+          <li>cottoncloud01</li>
+          <li>Pro_Dreamy</li>
+          <li>sir_spectro</li>
+          <li>Eight</li>
+          <li>walidwolly09</li>
+        </ol>
+      </details>
+    </section>
 
-    <details class="card member-toggle">
-      <summary>Tap to see Trial Members 🌿</summary>
-      <ol>
-        <li>VannahX</li>
-        <li>MoonSukes</li>
-        <li>blazacooks</li>
-        <li>BarGaming_</li>
-        <li>KrishnaYt_129</li>
-        <li>Slayer_of_Terra</li>
-      </ol>
-    </details>
-  </section>
+    <!-- TRIAL MEMBERS -->
+    <section class="section">
+      <h2>🍃 Trial Members</h2>
 
-  <!-- ALLIED CLANS -->
-  <section class="section soft">
-    <h2>🤝 Allied Clans</h2>
+      <details class="card member-toggle">
+        <summary>Tap to see Trial Members ✨</summary>
+        <ol>
+          <li>VannahX</li>
+          <li>MoonSukes</li>
+          <li>blazacooks</li>
+          <li>BarGaming_</li>
+          <li>KrishnaYt_129</li>
+          <li>Slayer_of_Terra</li>
+        </ol>
+      </details>
+    </section>
 
-    <div class="card">
-      <h3>🛡️ Withers</h3>
-      <p>Leader: <strong>shubh_68</strong></p>
-      <p>Co-Leader: <strong>pmjk</strong></p>
-    </div>
+    <!-- ALLIED CLANS -->
+    <section class="section">
+      <h2>🤝 Allied Clans</h2>
 
-    <div class="card">
-      <h3>🌪️ Vortex</h3>
-      <p>Leaders: <strong>panther100</strong> & <strong>Dibson</strong></p>
-    </div>
-  </section>
+      <div class="card">
+        <h3>🛡️ Withers</h3>
+        <p>Leader: <strong>shubh_68</strong></p>
+        <p>Co-Leader: <strong>pmjk</strong></p>
+      </div>
 
-  <!-- FOOTER -->
-  <footer class="section">
+      <div class="card">
+        <h3>🌪️ Vortex</h3>
+        <p>Leaders: <strong>panther100</strong> & <strong>Dibson</strong></p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="section">
+      <p>Built calmly by</p>
+      <h3>DeadSlot</h3>
+      <p>© 2026 GodSpell</p>
+    </footer>
+
+  </main>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>  <footer class="section">
     <p>Built calmly by</p>
     <h3>DeadSlot</h3>
     <p>© 2026 GodSpell</p>
