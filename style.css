@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Segoe UI", system-ui, sans-serif;
 }
 
 /* PAGE */
@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* LIVE CANVAS BACKGROUND */
+/* BACKGROUND CANVAS */
 #bg {
   position: fixed;
   inset: 0;
@@ -37,7 +37,7 @@ body {
   opacity: 0.85;
 }
 
-/* BUTTON */
+/* DISCORD BUTTON */
 .discord-btn {
   display: inline-block;
   margin-top: 30px;
@@ -60,7 +60,7 @@ body {
   padding: 70px 20px;
 }
 
-/* SOFT GLASS SECTION */
+/* SOFT SECTION */
 .section.soft {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(6px);
@@ -122,14 +122,13 @@ details summary::-webkit-details-marker {
 
 details summary::after {
   content: " 🌿";
-  font-size: 0.95rem;
 }
 
 details[open] summary::after {
   content: " 🍃";
 }
 
-/* FOOTER */
+/* FOOTER — ALWAYS BOTTOM */
 footer {
   padding: 50px 20px;
   background: rgba(240, 248, 242, 0.85);
