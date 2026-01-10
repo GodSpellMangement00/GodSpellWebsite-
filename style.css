@@ -11,73 +11,109 @@
    BASE
 ========================= */
 body {
-  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #060b18;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: radial-gradient(circle at bottom, #020409, #000000 70%);
   color: #e8ecff;
   overflow-x: hidden;
 }
 
 /* =========================
-   BACKGROUND LAYERS
+   NIGHT SKY CANVAS
+========================= */
+#space {
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+}
+
+/* =========================
+   NEBULA / FOG
+========================= */
+.nebula {
+  position: fixed;
+  inset: 0;
+  z-index: -15;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(120, 90, 255, 0.15), transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(90, 200, 255, 0.12), transparent 55%);
+  animation: nebulaMove 120s linear infinite;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@keyframes nebulaMove {
+  from {
+    transform: translateX(-10%) translateY(-10%);
+  }
+  to {
+    transform: translateX(10%) translateY(10%);
+  }
+}
+
+/* =========================
+   MOON GLOW
+========================= */
+.moon {
+  position: fixed;
+  top: 8%;
+  right: 10%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.9), rgba(200,210,255,0.15), transparent 70%);
+  filter: blur(8px);
+  opacity: 0.8;
+  z-index: -14;
+  pointer-events: none;
+}
+
+/* =========================
+   BACKGROUND IMAGES
 ========================= */
 .background {
   position: fixed;
   inset: 0;
-  z-index: -5;
+  z-index: -10;
   overflow: hidden;
 }
 
-/* Images */
 .bg-image {
   position: absolute;
   inset: 0;
   width: 110%;
   height: 110%;
   object-fit: cover;
-  filter: blur(1px) brightness(0.7);
-  animation: float 40s linear infinite;
+  filter: brightness(0.6) saturate(1.1);
+  animation: slowPan 90s linear infinite;
 }
 
-/* Layer speeds */
 .layer.slow {
-  animation-duration: 90s;
-  opacity: 0.5;
+  animation-duration: 140s;
+  opacity: 0.45;
 }
 
 .layer.medium {
-  animation-duration: 60s;
-  opacity: 0.65;
+  animation-duration: 100s;
+  opacity: 0.6;
 }
 
 .layer.fast {
-  animation-duration: 35s;
+  animation-duration: 70s;
   opacity: 0.8;
 }
 
-.layer.moon {
-  animation-duration: 120s;
-  filter: blur(0.5px) brightness(0.9);
+.layer.moon-layer {
+  animation-duration: 180s;
   opacity: 0.9;
 }
 
-/* Floating effect */
-@keyframes float {
+@keyframes slowPan {
   from {
-    transform: translateX(-2%) translateY(-2%);
+    transform: translate(-3%, -3%) scale(1.05);
   }
   to {
-    transform: translateX(2%) translateY(2%);
+    transform: translate(3%, 3%) scale(1.05);
   }
-}
-
-/* =========================
-   STAR CANVAS
-========================= */
-#stars {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
 }
 
 /* =========================
@@ -92,19 +128,19 @@ body {
    HERO
 ========================= */
 .hero {
-  padding: 120px 20px 80px;
+  padding: 130px 20px 90px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: 3.8rem;
+  font-size: 4rem;
   letter-spacing: 2px;
   color: #ffffff;
-  text-shadow: 0 0 25px rgba(160, 170, 255, 0.8);
+  text-shadow: 0 0 30px rgba(150,170,255,0.8);
 }
 
 .tagline {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 1.15rem;
   opacity: 0.85;
 }
@@ -114,50 +150,50 @@ body {
 ========================= */
 .discord-btn {
   display: inline-block;
-  margin-top: 30px;
-  padding: 14px 46px;
+  margin-top: 32px;
+  padding: 14px 48px;
   border-radius: 999px;
   background: linear-gradient(135deg, #7aa2ff, #9b7bff);
   color: #ffffff;
   font-weight: 600;
   text-decoration: none;
-  box-shadow: 0 0 25px rgba(140, 150, 255, 0.6);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 0 30px rgba(140,160,255,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .discord-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 40px rgba(160, 170, 255, 0.9);
+  box-shadow: 0 0 45px rgba(170,190,255,0.9);
 }
 
 /* =========================
    SECTIONS
 ========================= */
 .section {
-  padding: 80px 20px;
+  padding: 90px 20px;
   text-align: center;
 }
 
 /* =========================
-   CARDS (GLASS STYLE)
+   GLASS CARDS
 ========================= */
 .card {
   background: rgba(20, 25, 60, 0.55);
-  backdrop-filter: blur(10px);
-  border-radius: 22px;
-  padding: 28px;
-  max-width: 420px;
-  margin: 20px auto;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 30px;
+  max-width: 440px;
+  margin: 22px auto;
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55);
 }
 
 .card.wide {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .card h3 {
-  margin-bottom: 14px;
-  color: #cfd7ff;
+  margin-bottom: 16px;
+  color: #d6dcff;
 }
 
 .card ol {
@@ -166,7 +202,7 @@ body {
 }
 
 .card li {
-  margin: 6px 0;
+  margin: 7px 0;
 }
 
 /* =========================
@@ -176,7 +212,7 @@ details summary {
   cursor: pointer;
   list-style: none;
   font-weight: 600;
-  color: #b8c3ff;
+  color: #c3ccff;
 }
 
 details summary::-webkit-details-marker {
@@ -195,92 +231,10 @@ details[open] summary::after {
    FOOTER
 ========================= */
 footer {
-  padding: 60px 20px;
-  text-align: center;
+  padding: 70px 20px;
   opacity: 0.85;
 }
 
 footer h3 {
   color: #ffffff;
-}
-.card:active {
-  transform: scale(0.97);
-}
-
-.card.wide {
-  max-width: 720px;
-}
-
-.card h3 {
-  margin-bottom: 12px;
-  color: #4f7f65;
-  text-align: center;
-}
-
-/* =========================
-   LISTS
-========================= */
-.card ol {
-  padding-left: 22px;
-}
-
-.card li {
-  margin: 6px 0;
-}
-
-/* =========================
-   DETAILS (TOGGLE LISTS)
-========================= */
-details summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #4f7f65;
-  list-style: none;
-  text-align: center;
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details summary::after {
-  content: " 🌿";
-}
-
-details[open] summary::after {
-  content: " 🍃";
-}
-
-/* =========================
-   ALLIES TEXT
-========================= */
-.card p {
-  margin: 6px 0;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer {
-  padding: 50px 20px;
-  background: rgba(240, 248, 242, 0.9);
-}
-
-footer h3 {
-  color: #355f4b;
-  margin: 6px 0;
-}
-
-/* =========================
-   SCROLL REVEAL ANIMATION
-========================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
 }
