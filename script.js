@@ -1,44 +1,42 @@
 /* ===============================
-   COZY JAPAN NATURE BACKGROUND
+   COZY NATURE BACKGROUND (LEAVES)
 ================================ */
 
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 let w, h;
-function resize() {
+
+function resizeCanvas() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
 }
-resize();
-window.addEventListener("resize", resize);
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 /* Leaf particles */
 const leaves = [];
-const LEAF_COUNT = 70; // safe for mobile
+const LEAF_COUNT = 60; // safe for mobile
 
 for (let i = 0; i < LEAF_COUNT; i++) {
   leaves.push({
     x: Math.random() * w,
     y: Math.random() * h,
     r: Math.random() * 3 + 1,
-    speed: Math.random() * 0.4 + 0.2,
+    speed: Math.random() * 0.35 + 0.15,
     sway: Math.random() * 0.6 + 0.2,
     offset: Math.random() * Math.PI * 2
   });
 }
 
-function animateNature() {
+function animateLeaves() {
   ctx.clearRect(0, 0, w, h);
 
   for (const leaf of leaves) {
     leaf.x += leaf.speed;
     leaf.offset += 0.01;
-
-    // Gentle wind sway
     leaf.y += Math.sin(leaf.offset) * leaf.sway;
 
-    // Reset leaf when it goes off screen
     if (leaf.x > w + 10) {
       leaf.x = -10;
       leaf.y = Math.random() * h;
@@ -50,13 +48,13 @@ function animateNature() {
     ctx.fill();
   }
 
-  requestAnimationFrame(animateNature);
+  requestAnimationFrame(animateLeaves);
 }
 
-animateNature();
+animateLeaves();
 
 /* ===============================
-   COLLAPSIBLE MEMBER LIST LOGIC
+   AUTO-CLOSE MEMBER LISTS
 ================================ */
 
 const toggles = document.querySelectorAll(".member-toggle");
