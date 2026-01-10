@@ -5,15 +5,24 @@
   font-family: "Segoe UI", system-ui, sans-serif;
 }
 
+/* PAGE */
 body {
   background: linear-gradient(180deg, #f9f6ff, #e6ddff);
   color: #2b0040;
   text-align: center;
+  overflow-x: hidden;
 }
 
+/* CANVAS BACKGROUND */
+#bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* HERO */
 .hero {
   padding: 120px 20px 90px;
-  background: linear-gradient(180deg, #ffffff, #efe9ff);
 }
 
 .hero h1 {
@@ -25,58 +34,60 @@ body {
 .tagline {
   margin-top: 12px;
   font-size: 1.2rem;
+  opacity: 0.9;
 }
 
+/* DISCORD BUTTON */
 .discord-btn {
   display: inline-block;
   margin-top: 35px;
   padding: 15px 45px;
   border-radius: 40px;
   background: linear-gradient(135deg, #b59cff, #6a00ff);
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
-  animation: pulse 2.5s infinite;
+  box-shadow: 0 0 25px rgba(106, 0, 255, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 rgba(106,0,255,0.4); }
-  70% { box-shadow: 0 0 25px rgba(106,0,255,0.5); }
-  100% { box-shadow: 0 0 0 rgba(106,0,255,0); }
+.discord-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(106, 0, 255, 0.6);
 }
 
+/* SECTIONS */
 .section {
   padding: 80px 20px;
 }
 
 .section.light {
-  background: linear-gradient(180deg, #ffffff, #efe9ff);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
 }
 
-.divider {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #6a00ff, transparent);
-  margin: 0 20%;
-}
-
+/* HEADINGS */
 h2 {
   font-size: 2.4rem;
   margin-bottom: 40px;
   color: #5a00d4;
+  text-shadow: 0 0 12px rgba(106, 0, 255, 0.25);
 }
 
+/* CARDS */
 .card {
-  background: white;
+  background: #ffffff;
   max-width: 420px;
   margin: 20px auto;
   padding: 32px;
   border-radius: 26px;
-  box-shadow: 0 18px 40px rgba(106,0,255,0.15);
-  transition: 0.3s;
+  box-shadow: 0 18px 40px rgba(106, 0, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
+  box-shadow: 0 25px 55px rgba(106, 0, 255, 0.25);
 }
 
 .card.wide {
@@ -88,20 +99,35 @@ h2 {
   color: #6a00ff;
 }
 
+/* LISTS */
 .card ol {
   text-align: left;
   padding-left: 22px;
 }
 
-.dev-card {
-  border: 2px solid #6a00ff;
+.card li {
+  margin: 8px 0;
 }
 
+/* DEVELOPER HIGHLIGHT */
+.dev-card {
+  border: 2px solid #6a00ff;
+  box-shadow:
+    0 0 25px rgba(106, 0, 255, 0.35),
+    inset 0 0 12px rgba(106, 0, 255, 0.15);
+}
+
+/* DETAILS / CLICK BUTTON */
 details summary {
   cursor: pointer;
   font-weight: bold;
   color: #6a00ff;
   list-style: none;
+  font-size: 1.05rem;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
 }
 
 details summary::after {
@@ -113,11 +139,13 @@ details[open] summary::after {
   content: " ▲";
 }
 
+/* FOOTER */
 footer {
   padding: 55px 20px;
-  background: #f1ecff;
+  background: rgba(241, 236, 255, 0.8);
 }
 
 footer h3 {
   color: #6a00ff;
+  text-shadow: 0 0 15px #cdb7ff;
 }
