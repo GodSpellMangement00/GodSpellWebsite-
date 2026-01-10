@@ -1,7 +1,6 @@
-/* ===============================
+/* =================================
    COZY NATURE BACKGROUND (LEAVES)
-================================ */
-
+================================= */
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
@@ -14,7 +13,6 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-/* Leaf particles */
 const leaves = [];
 const LEAF_COUNT = 60; // safe for mobile
 
@@ -50,13 +48,34 @@ function animateLeaves() {
 
   requestAnimationFrame(animateLeaves);
 }
-
 animateLeaves();
 
-/* ===============================
-   AUTO-CLOSE MEMBER LISTS
-================================ */
+/* =================================
+   SCROLL REVEAL ANIMATION
+================================= */
+const revealItems = document.querySelectorAll(
+  ".section, .card, footer"
+);
 
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+revealItems.forEach(el => {
+  el.classList.add("reveal");
+  observer.observe(el);
+});
+
+/* =================================
+   AUTO-CLOSE MEMBER LISTS
+================================= */
 const toggles = document.querySelectorAll(".member-toggle");
 
 toggles.forEach(current => {
