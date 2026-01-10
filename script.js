@@ -1,89 +1,59 @@
-/* =================================
-   COZY NATURE BACKGROUND (LEAVES)
-================================= */
-const canvas = document.getElementById("bg");
+/* ============================
+   STAR FIELD (CINEMATIC)
+============================ */
+
+const canvas = document.getElementById("stars");
 const ctx = canvas.getContext("2d");
 
 let w, h;
 
-function resizeCanvas() {
+function resize() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
 }
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+resize();
+window.addEventListener("resize", resize);
 
-const leaves = [];
-const LEAF_COUNT = 60; // safe for mobile
+/* STAR OBJECTS */
+const stars = [];
+const STAR_COUNT = Math.min(180, window.innerWidth / 5); // mobile-safe
 
-for (let i = 0; i < LEAF_COUNT; i++) {
-  leaves.push({
+for (let i = 0; i < STAR_COUNT; i++) {
+  stars.push({
     x: Math.random() * w,
     y: Math.random() * h,
-    r: Math.random() * 3 + 1,
-    speed: Math.random() * 0.35 + 0.15,
-    sway: Math.random() * 0.6 + 0.2,
-    offset: Math.random() * Math.PI * 2
+    r: Math.random() * 1.6 + 0.4,
+    alpha: Math.random(),
+    speed: Math.random() * 0.15 + 0.05,
+    twinkle: Math.random() * 0.02 + 0.005
   });
 }
 
-function animateLeaves() {
+function animateStars() {
   ctx.clearRect(0, 0, w, h);
 
-  for (const leaf of leaves) {
-    leaf.x += leaf.speed;
-    leaf.offset += 0.01;
-    leaf.y += Math.sin(leaf.offset) * leaf.sway;
+  for (const s of stars) {
+    s.y += s.speed;
+    s.alpha += s.twinkle;
 
-    if (leaf.x > w + 10) {
-      leaf.x = -10;
-      leaf.y = Math.random() * h;
+    if (s.alpha <= 0 || s.alpha >= 1) {
+      s.twinkle *= -1;
+    }
+
+    if (s.y > h) {
+      s.y = 0;
+      s.x = Math.random() * w;
     }
 
     ctx.beginPath();
-    ctx.arc(leaf.x, leaf.y, leaf.r, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(120, 170, 140, 0.35)";
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(200, 210, 255, ${s.alpha})`;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = "rgba(170, 180, 255, 0.8)";
     ctx.fill();
   }
 
-  requestAnimationFrame(animateLeaves);
+  requestAnimationFrame(animateStars);
 }
-animateLeaves();
 
-/* =================================
-   SCROLL REVEAL ANIMATION
-================================= */
-const revealItems = document.querySelectorAll(
-  ".section, .card, footer"
-);
-
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-revealItems.forEach(el => {
-  el.classList.add("reveal");
-  observer.observe(el);
-});
-
-/* =================================
-   AUTO-CLOSE MEMBER LISTS
-================================= */
-const toggles = document.querySelectorAll(".member-toggle");
-
-toggles.forEach(current => {
-  current.addEventListener("toggle", () => {
-    if (current.open) {
-      toggles.forEach(other => {
-        if (other !== current) other.open = false;
-      });
-    }
-  });
-});
+animateStars();
