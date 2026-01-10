@@ -386,3 +386,26 @@ footer {
 footer h3 {
   color: #ffffff;
 }
+
+/* =========================
+   BUBBLE EFFECT
+========================= */
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(1px);
+  animation: bubbleFloat 1.8s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes bubbleFloat {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.9;
+  }
+  to {
+    transform: translateY(-90px) scale(1.6);
+    opacity: 0;
+  }
+}
