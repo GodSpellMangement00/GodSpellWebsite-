@@ -1,71 +1,72 @@
-/* ================================
-   3D LIVE BACKGROUND (CANVAS)
+/* ===============================
+   COZY JAPAN NATURE BACKGROUND
 ================================ */
+
 const canvas = document.getElementById("bg");
 const ctx = canvas.getContext("2d");
 
 let w, h;
-function resizeCanvas() {
+function resize() {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
 }
-resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+resize();
+window.addEventListener("resize", resize);
 
-const particles = [];
-const COUNT = 90; // safe for phone
+/* Leaf particles */
+const leaves = [];
+const LEAF_COUNT = 70; // safe for mobile
 
-for (let i = 0; i < COUNT; i++) {
-  particles.push({
+for (let i = 0; i < LEAF_COUNT; i++) {
+  leaves.push({
     x: Math.random() * w,
     y: Math.random() * h,
-    z: Math.random() * 1 + 0.3, // depth (3D feel)
-    r: Math.random() * 2 + 1,
-    vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3
+    r: Math.random() * 3 + 1,
+    speed: Math.random() * 0.4 + 0.2,
+    sway: Math.random() * 0.6 + 0.2,
+    offset: Math.random() * Math.PI * 2
   });
 }
 
-function animateBackground() {
+function animateNature() {
   ctx.clearRect(0, 0, w, h);
 
-  for (const p of particles) {
-    p.x += p.vx * p.z;
-    p.y += p.vy * p.z;
+  for (const leaf of leaves) {
+    leaf.x += leaf.speed;
+    leaf.offset += 0.01;
 
-    if (p.x < 0) p.x = w;
-    if (p.x > w) p.x = 0;
-    if (p.y < 0) p.y = h;
-    if (p.y > h) p.y = 0;
+    // Gentle wind sway
+    leaf.y += Math.sin(leaf.offset) * leaf.sway;
+
+    // Reset leaf when it goes off screen
+    if (leaf.x > w + 10) {
+      leaf.x = -10;
+      leaf.y = Math.random() * h;
+    }
 
     ctx.beginPath();
-    ctx.arc(p.x, p.y, p.r * p.z, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(106, 0, 255, ${0.25 * p.z})`;
+    ctx.arc(leaf.x, leaf.y, leaf.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(120, 170, 140, 0.35)";
     ctx.fill();
   }
 
-  requestAnimationFrame(animateBackground);
+  requestAnimationFrame(animateNature);
 }
-animateBackground();
 
-/* ================================
-   COLLAPSIBLE LIST LOGIC
+animateNature();
+
+/* ===============================
+   COLLAPSIBLE MEMBER LIST LOGIC
 ================================ */
+
 const toggles = document.querySelectorAll(".member-toggle");
 
 toggles.forEach(current => {
-  const summary = current.querySelector("summary");
-  const originalText = summary.textContent;
-
   current.addEventListener("toggle", () => {
-    // Auto-close other lists
     if (current.open) {
       toggles.forEach(other => {
         if (other !== current) other.open = false;
       });
-      summary.textContent = originalText.replace("view", "hide");
-    } else {
-      summary.textContent = originalText.replace("hide", "view");
     }
   });
 });
