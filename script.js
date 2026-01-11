@@ -1,12 +1,12 @@
 /* =========================
-   SCROLL REVEAL (AESTHETIC)
+   SCROLL REVEAL (SOFT)
 ========================= */
 
-const revealItems = document.querySelectorAll(
+const revealElements = document.querySelectorAll(
   ".section, .card, footer"
 );
 
-const revealObserver = new IntersectionObserver(
+const observer = new IntersectionObserver(
   entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -17,20 +17,20 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.15 }
 );
 
-revealItems.forEach(el => {
+revealElements.forEach(el => {
   el.classList.add("reveal");
-  revealObserver.observe(el);
+  observer.observe(el);
 });
 
 /* =========================
-   CLICK BUBBLES (MINIMAL)
+   COZY CLICK BUBBLES
 ========================= */
 
 function createBubble(x, y) {
   const bubble = document.createElement("span");
   bubble.className = "bubble";
 
-  const size = Math.random() * 12 + 6;
+  const size = Math.random() * 10 + 6;
   bubble.style.width = size + "px";
   bubble.style.height = size + "px";
   bubble.style.left = x - size / 2 + "px";
@@ -45,7 +45,7 @@ document.addEventListener("click", e => {
 });
 
 /* =========================
-   HOVER LIFT (CARDS)
+   CARD HOVER LIFT
 ========================= */
 
 document.querySelectorAll(".card").forEach(card => {
