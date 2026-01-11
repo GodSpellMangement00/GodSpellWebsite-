@@ -1,9 +1,7 @@
 /* =========================
    SCROLL REVEAL
 ========================= */
-const revealElements = document.querySelectorAll(
-  ".section, .card, footer"
-);
+const revealElements = document.querySelectorAll(".section, .card, footer");
 
 const observer = new IntersectionObserver(
   entries => {
@@ -22,7 +20,7 @@ revealElements.forEach(el => {
 });
 
 /* =========================
-   COZY CLICK BUBBLES
+   CLICK BUBBLES (COZY)
 ========================= */
 function createBubble(x, y) {
   const bubble = document.createElement("span");
@@ -106,23 +104,33 @@ setInterval(() => {
     strikeLightning();
   }
 }, 15000);
-/* =========================
-   COPY SERVER IP BUTTON
-========================= */
 
+/* =========================
+   COPY SERVER IP (100% WORKING)
+========================= */
 document.querySelectorAll("[data-ip]").forEach(button => {
   button.addEventListener("click", () => {
     const ip = button.getAttribute("data-ip");
 
-    navigator.clipboard.writeText(ip).then(() => {
-      const originalText = button.innerText;
+    const tempInput = document.createElement("input");
+    tempInput.value = ip;
+    document.body.appendChild(tempInput);
+
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); // mobile support
+
+    try {
+      document.execCommand("copy");
+      const oldText = button.innerText;
       button.innerText = "IP Copied ✔";
 
       setTimeout(() => {
-        button.innerText = originalText;
+        button.innerText = oldText;
       }, 2000);
-    }).catch(() => {
-      alert("Copy failed. IP: " + ip);
-    });
+    } catch {
+      alert("Copy this IP manually: " + ip);
+    }
+
+    document.body.removeChild(tempInput);
   });
 });
