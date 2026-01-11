@@ -20,7 +20,7 @@ revealElements.forEach(el => {
 });
 
 /* =========================
-   CLICK BUBBLES (COZY)
+   CLICK BUBBLES
 ========================= */
 function createBubble(x, y) {
   const bubble = document.createElement("span");
@@ -106,31 +106,33 @@ setInterval(() => {
 }, 15000);
 
 /* =========================
-   COPY SERVER IP (100% WORKING)
+   COPY SERVER IP (FINAL FIX)
 ========================= */
-document.querySelectorAll("[data-ip]").forEach(button => {
-  button.addEventListener("click", () => {
-    const ip = button.getAttribute("data-ip");
+const copyBtn = document.querySelector(".copy-ip");
+const ipText = document.getElementById("server-ip");
+const SERVER_IP = "pika-network.net";
 
-    const tempInput = document.createElement("input");
-    tempInput.value = ip;
-    document.body.appendChild(tempInput);
+if (copyBtn) {
+  copyBtn.addEventListener("click", () => {
 
-    tempInput.select();
-    tempInput.setSelectionRange(0, 99999); // mobile support
-
-    try {
-      document.execCommand("copy");
-      const oldText = button.innerText;
-      button.innerText = "IP Copied ✔";
-
-      setTimeout(() => {
-        button.innerText = oldText;
-      }, 2000);
-    } catch {
-      alert("Copy this IP manually: " + ip);
+    // Try modern clipboard first
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(SERVER_IP)
+        .then(showSuccess)
+        .catch(showFallback);
+    } else {
+      showFallback();
     }
-
-    document.body.removeChild(tempInput);
   });
-});
+}
+
+function showSuccess() {
+  const oldText = copyBtn.innerText;
+  copyBtn.innerText = "IP Copied ✔";
+  setTimeout(() => copyBtn.innerText = oldText, 2000);
+}
+
+function showFallback() {
+  ipText.style.display = "block";
+  ipText.innerText = "Server IP: " + SERVER_IP + " (long-press to copy)";
+}
