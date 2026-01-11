@@ -136,3 +136,24 @@ function showFallback() {
   ipText.style.display = "block";
   ipText.innerText = "Server IP: " + SERVER_IP + " (long-press to copy)";
 }
+/* =========================
+   BUTTON CLICK ANIMATION 😎
+========================= */
+document.querySelectorAll("button, .discord-btn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    btn.classList.remove("ripple");
+
+    // Force reflow so animation restarts
+    void btn.offsetWidth;
+
+    btn.classList.add("ripple");
+
+    // Position ripple where clicked
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    btn.style.setProperty("--x", x + "px");
+    btn.style.setProperty("--y", y + "px");
+  });
+});
