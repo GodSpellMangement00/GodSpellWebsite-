@@ -106,3 +106,23 @@ setInterval(() => {
     strikeLightning();
   }
 }, 15000);
+/* =========================
+   COPY SERVER IP BUTTON
+========================= */
+
+document.querySelectorAll("[data-ip]").forEach(button => {
+  button.addEventListener("click", () => {
+    const ip = button.getAttribute("data-ip");
+
+    navigator.clipboard.writeText(ip).then(() => {
+      const originalText = button.innerText;
+      button.innerText = "IP Copied ✔";
+
+      setTimeout(() => {
+        button.innerText = originalText;
+      }, 2000);
+    }).catch(() => {
+      alert("Copy failed. IP: " + ip);
+    });
+  });
+});
