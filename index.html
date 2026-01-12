@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GodSpell</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>GodSpell | Minecraft Survival Clan</title>
+
+  <!-- SEO -->
+  <meta name="description" content="GodSpell is a Minecraft Survival clan on Pika Network. A calm, cozy, anime-inspired community built as a family. Established in 2024." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- AESTHETIC BACKGROUND -->
+  <!-- CLICK SOUND -->
+  <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+
+  <!-- BACKGROUND -->
   <div class="aesthetic-bg">
     <div class="gradient-layer"></div>
     <div class="noise-layer"></div>
@@ -21,7 +30,7 @@
     <header class="hero">
       <h1>GodSpell</h1>
       <p class="tagline">Not just grinding — building a family across the world.</p>
-      <p style="opacity:0.8;margin-top:8px;">Established in 2024</p>
+      <p class="established">Established in 2024</p>
 
       <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
         Join Our Discord
@@ -30,54 +39,70 @@
 
     <!-- STORY -->
     <section class="section">
-      <h2>📜 The Origin of GodSpell</h2>
+      <h2>📜 Our Story</h2>
       <div class="card wide">
         <p>
-          GodSpell started with patience and vision. What began as solo grinding
-          slowly turned into a trusted family built on loyalty and respect.
+          GodSpell was started by Sam along with his friends.
+          The journey was full of struggle, effort, and patience.
         </p>
         <p>
-          Today, we connect people from different parts of the world
-          as brothers from different mothers.
+          Over time, that effort formed a strong team and a calm,
+          friendly community where everyone matters.
+        </p>
+        <p>
+          Today, GodSpell stands as a family — not just a clan.
         </p>
       </div>
     </section>
 
-    <!-- GAME SERVER -->
+    <!-- GAME INFO -->
     <section class="section">
       <h2>🎮 Where We Play</h2>
       <div class="card wide">
+        <p><strong>Game:</strong> Minecraft</p>
         <p><strong>Server:</strong> pika-network.net</p>
         <p><strong>Mode:</strong> Survival</p>
 
-        <!-- COPY IP -->
         <button class="discord-btn copy-ip">
           Copy Server IP
         </button>
 
-        <!-- FALLBACK TEXT (shown if copy blocked) -->
-        <p id="server-ip" style="display:none;margin-top:14px;opacity:0.9;">
+        <p id="server-ip" style="display:none;margin-top:12px;">
           pika-network.net
         </p>
       </div>
     </section>
 
-    <!-- PHILOSOPHY -->
+    <!-- VALUES -->
     <section class="section">
-      <h2>🧠 Our Philosophy</h2>
+      <h2>🧠 Philosophy & Values</h2>
       <div class="card wide">
         <ul>
-          <li>🤝 Trusted members first</li>
-          <li>🛡️ Loyalty over numbers</li>
-          <li>🌿 No toxicity, no hate</li>
-          <li>💬 Be good to everyone</li>
+          <li>🤝 Trusted members over numbers</li>
+          <li>🌿 Calm, cozy, friendly vibes</li>
+          <li>🛡️ Loyalty and respect first</li>
+          <li>🚫 No toxicity or hate</li>
+          <li>💬 Polite language only</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- GOALS -->
+    <section class="section">
+      <h2>🎯 Our Goals</h2>
+      <div class="card wide">
+        <ul>
+          <li>Build the best survival team</li>
+          <li>Create massive bases & farms</li>
+          <li>Care for every member</li>
+          <li>Grow as a family</li>
         </ul>
       </div>
     </section>
 
     <!-- LEADERSHIP -->
     <section class="section">
-      <h2>👑 Leadership</h2>
+      <h2>👑 Leadership & Staff</h2>
 
       <div class="card">
         <h3>Leaders</h3>
@@ -116,15 +141,16 @@
       </div>
     </section>
 
-    <!-- EVENTS -->
+    <!-- MEMBER SPOTLIGHT -->
     <section class="section">
-      <h2>🎉 Events & Activities</h2>
+      <h2>⭐ Member Spotlight</h2>
       <div class="card wide">
         <ul>
-          <li>🎁 Giveaways</li>
-          <li>💬 Chill talks</li>
-          <li>🔥 Grinding sessions</li>
-          <li>🏗️ Base building</li>
+          <li>Sam — Vision & leadership</li>
+          <li>Bronzey — Stability & support</li>
+          <li>PIPIPPO — Core activity & strength</li>
+          <li>abinav_gamer — Loyalty & grind</li>
+          <li>TheGod — Balance & moderation</li>
         </ul>
       </div>
     </section>
@@ -163,43 +189,64 @@
       </details>
     </section>
 
+    <!-- RULES -->
+    <section class="section">
+      <h2>📜 Rules</h2>
+      <div class="card wide">
+        <ol>
+          <li>No toxicity, hate, or racism</li>
+          <li>Polite language only</li>
+          <li>No age limit, maturity required</li>
+          <li>Respect all members & staff</li>
+          <li>Support each other</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section">
+      <h2>🖼️ Gallery</h2>
+      <div class="card wide">
+        <p>Our bases, farms, events, and memories.</p>
+
+        <div class="gallery">
+          <!-- Replace image paths with real images later -->
+          <img src="images/base1.jpg" alt="Base Build">
+          <img src="images/base2.jpg" alt="Farm">
+          <img src="images/base3.jpg" alt="Clan Base">
+          <img src="images/event1.jpg" alt="Event">
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLY -->
+    <section class="section">
+      <h2>📨 Apply / Contact</h2>
+      <div class="card wide">
+        <p>Want to join GodSpell or apply for Core?</p>
+        <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
+          Apply on Discord
+        </a>
+      </div>
+    </section>
+
     <!-- FAQ -->
     <section class="section">
-      <h2>❓ Frequently Asked Questions</h2>
+      <h2>❓ FAQ</h2>
 
       <details class="card wide">
-        <summary>Which server do you play on?</summary>
-        <p>We play on pika-network.net (Survival mode).</p>
+        <summary>Is GodSpell beginner friendly?</summary>
+        <p>Yes, as long as rules are followed.</p>
       </details>
 
       <details class="card wide">
-        <summary>Is GodSpell only about grinding?</summary>
-        <p>No. Family and respect come first.</p>
+        <summary>Do you only play Survival?</summary>
+        <p>Yes, only Minecraft Survival.</p>
       </details>
 
       <details class="card wide">
-        <summary>Is toxicity allowed?</summary>
-        <p>No hate, no toxicity — ever.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Do you host giveaways?</summary>
-        <p>Yes, we host giveaways and community events.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Can I become staff before Core?</summary>
-        <p>Yes, staff roles are possible before Core.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>How do I apply for Core?</summary>
-        <p>DM us or join our Discord to apply.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Can beginners join?</summary>
-        <p>Yes, everyone is welcome if they follow the rules.</p>
+        <summary>How can I become Core?</summary>
+        <p>Be active, respectful, and apply via Discord.</p>
       </details>
     </section>
 
@@ -223,7 +270,7 @@
 
   </main>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
-  </html>
-<audio id="click-sound" src="sounds/click.mp3"></audio>
+</html>
