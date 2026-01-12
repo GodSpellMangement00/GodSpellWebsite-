@@ -261,3 +261,30 @@ footer h3 {
     font-size: 1.6rem;
   }
                               }
+/* FIX CARD SIZE & CENTER TEXT */
+.card,
+.card.wide {
+  padding: 18px 20px;          /* smaller box */
+  text-align: center;          /* center text */
+}
+
+.card ul,
+.card ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-position: inside; /* keep lists neat */
+}
+
+.card li {
+  text-align: center;
+}
+
+/* Reduce section spacing */
+.section {
+  margin-top: 60px;
+}
+
+/* Make cards less tall */
+.card {
+  line-height: 1.6;
+}
