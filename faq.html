@@ -1,1 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GodSpell | FAQs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Same CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="content">
+
+    <!-- HERO -->
+    <header class="hero">
+      <h1>❓ GodSpell FAQs</h1>
+      <p class="tagline">Search your question below</p>
+
+      <a href="index.html" class="discord-btn">
+        ← Back to Home
+      </a>
+    </header>
+
+    <!-- SEARCH -->
+    <input
+      type="text"
+      id="faqSearch"
+      placeholder="Type your question here..."
+      class="faq-search"
+    />
+
+    <!-- RESULT -->
+    <div id="faq-results" class="card wide"></div>
+
+    <!-- ALL FAQ LIST -->
+    <section class="section" id="all-faqs">
+
+      <details class="card wide">
+        <summary>What is GodSpell?</summary>
+        <p>GodSpell is a Minecraft Survival clan built as a calm, friendly family.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>Which server do you play on?</summary>
+        <p>We play on pika-network.net in Survival mode.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>Who are the leaders?</summary>
+        <p>The leaders of GodSpell are Sam and Bronzey.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>Is there any age limit?</summary>
+        <p>No age limit. We only expect maturity and respect.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>Is toxicity allowed?</summary>
+        <p>No. Toxicity, hate, or disrespect is strictly not allowed.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>How can I join GodSpell?</summary>
+        <p>Join our Discord server and contact the staff.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>How can I become a Core Member?</summary>
+        <p>Be active, respectful, and apply via Discord.</p>
+      </details>
+
+      <details class="card wide">
+        <summary>Do you only play Survival?</summary>
+        <p>Yes, GodSpell focuses only on Minecraft Survival.</p>
+      </details>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2024–2026 GodSpell</p>
+    </footer>
+
+  </main>
+
+  <!-- FAQ SEARCH LOGIC -->
+  <script>
+    const searchInput = document.getElementById("faqSearch");
+    const resultsBox = document.getElementById("faq-results");
+    const allFaqs = document.querySelectorAll("#all-faqs details");
+
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.toLowerCase().trim();
+      let found = false;
+
+      resultsBox.innerHTML = "";
+      resultsBox.style.display = "none";
+
+      if (query === "") {
+        allFaqs.forEach(faq => faq.style.display = "block");
+        return;
+      }
+
+      allFaqs.forEach(faq => {
+        const text = faq.textContent.toLowerCase();
+        if (text.includes(query)) {
+          faq.style.display = "block";
+          found = true;
+        } else {
+          faq.style.display = "none";
+        }
+      });
+
+      if (!found) {
+        resultsBox.style.display = "block";
+        resultsBox.innerHTML = `
+          <p>No answer found.</p>
+          <p>
+            👉 <a href="https://discord.gg/YQVF7sy2gR" target="_blank">
+              Join our Discord to get every answer
+            </a>
+          </p>
+        `;
+      }
+    });
+  </script>
+
+</body>
+</html>
