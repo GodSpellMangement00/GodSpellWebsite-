@@ -1,209 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GodSpell | Minecraft Survival Clan</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GodSpell is a calm Minecraft Survival clan on Pika Network. Established 2024.">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GodSpell</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- AUDIO -->
-  <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
-  <audio id="bg-music" src="sounds/music.mp3" loop></audio>
-
-  <!-- MUSIC TOGGLE -->
-  <div class="audio-controls">
-    <button id="music-toggle">🎵 Music</button>
+  <!-- HERO -->
+  <div class="container hero">
+    <h1>GodSpell</h1>
+    <p class="subtitle">Not just grinding — we build a family.</p>
+    <p class="subtitle">Established in 2024</p>
+    <a class="btn" href="https://discord.gg/YQVF7sy2gR">Join Our Discord</a>
   </div>
 
-  <main class="content">
-
-    <!-- HERO -->
-    <header class="hero">
-      <h1>GodSpell</h1>
-      <p class="tagline">Not just grinding — we build a family.</p>
-      <p class="established">Established in 2024</p>
-
-      <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
-        Join Our Discord
-      </a>
-    </header>
+  <div class="container">
 
     <!-- STORY -->
-    <section class="section">
+    <section>
       <h2>📜 Our Story</h2>
-      <div class="card wide">
+      <div class="card">
         <p>
-          GodSpell was started by Sam with his friends.
-          Through struggle, grinding, and patience, it grew into a trusted family.
-          Our goal was never just to win — but to connect people from different
-          parts of the world as brothers from different mothers.
+          GodSpell was started by Sam with his friends. Through struggle,
+          grinding, and patience, it grew into a trusted family connecting
+          people from different parts of the world.
         </p>
       </div>
     </section>
 
     <!-- WHERE WE PLAY -->
-    <section class="section">
+    <section>
       <h2>🎮 Where We Play</h2>
-      <div class="card wide">
-        <p><strong>Game:</strong> Minecraft</p>
-        <p><strong>Server:</strong> pika-network.net</p>
-        <p><strong>Mode:</strong> Survival</p>
-
-        <button class="discord-btn copy-ip">Copy Server IP</button>
-        <p id="server-ip" style="display:none;margin-top:10px;"></p>
+      <div class="card">
+        <p>Game: Minecraft</p>
+        <p>Server: <b>pika-network.net</b></p>
+        <p>Mode: Survival</p>
+        <button class="btn">Copy Server IP</button>
       </div>
     </section>
 
-    <!-- VALUES / RULES -->
-    <section class="section">
+    <!-- RULES -->
+    <section>
       <h2>📜 Rules & Values</h2>
-      <div class="card wide">
-        <ul>
-          <li>No toxicity, hate, or racism</li>
-          <li>Polite language only</li>
-          <li>No age limit, maturity required</li>
-          <li>Respect all members & staff</li>
-          <li>Support each other</li>
-        </ul>
+      <div class="card">
+        <p>No toxicity, hate, or racism</p>
+        <p>Polite language only</p>
+        <p>No age limit — maturity required</p>
+        <p>Respect all members & staff</p>
+        <p>Support each other</p>
       </div>
     </section>
 
-    <!-- ACTIVITIES -->
-    <section class="section">
+    <!-- WHAT WE DO -->
+    <section>
       <h2>🎯 What We Do</h2>
-      <div class="card wide">
-        <ul>
-          <li>Survival grinding & base building</li>
-          <li>Chill talks & community bonding</li>
-          <li>Giveaways & fun events</li>
-          <li>Helping members grow together</li>
-        </ul>
+      <div class="card">
+        <p>Survival grinding & base building</p>
+        <p>Chill talks & community bonding</p>
+        <p>Giveaways & fun events</p>
+        <p>Helping members grow together</p>
       </div>
     </section>
 
     <!-- LEADERSHIP -->
-    <section class="section">
+    <section>
       <h2>👑 Leadership</h2>
 
       <div class="card">
-        <h3>Leaders</h3>
-        <ul>
-          <li>Sam</li>
-          <li>Bronzey</li>
-        </ul>
+        <p><b>Leaders</b></p>
+        <p>Sam</p>
+        <p>Bronzey</p>
       </div>
 
       <div class="card">
-        <h3>Developer</h3>
-        <ul>
-          <li>DeadSlot</li>
-        </ul>
+        <p><b>Developer</b></p>
+        <p>DeadSlot</p>
       </div>
 
       <div class="card">
-        <h3>Founder</h3>
-        <ul>
-          <li>Adam</li>
-        </ul>
+        <p><b>Founder</b></p>
+        <p>Adam</p>
       </div>
 
       <div class="card">
-        <h3>Co-Founder</h3>
-        <ul>
-          <li>st_hardrocks</li>
-        </ul>
+        <p><b>Co-Founder</b></p>
+        <p>st_hardrocks</p>
       </div>
 
       <div class="card">
-        <h3>Moderator</h3>
-        <ul>
-          <li>TheGod</li>
-        </ul>
+        <p><b>Moderator</b></p>
+        <p>TheGod</p>
       </div>
     </section>
 
     <!-- MEMBERS -->
-    <section class="section">
+    <section>
       <h2>🌱 Members</h2>
-
-      <details class="card wide">
-        <summary>Core Members</summary>
-        <p>Core members list available on Discord</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Trial Members</summary>
-        <p>Trial members can become staff before core</p>
-      </details>
+      <div class="card">▶ Core Members</div>
+      <div class="card">▶ Trial Members</div>
     </section>
 
-    <!-- ALLIED CLANS -->
-    <section class="section">
+    <!-- ALLIES -->
+    <section>
       <h2>🤝 Allied Clans</h2>
-
       <div class="card">
-        <h3>Withers</h3>
+        <p><b>Withers</b></p>
         <p>Leader: shubh_68</p>
         <p>Co-Leader: pmjk</p>
       </div>
-
       <div class="card">
-        <h3>Vortex</h3>
+        <p><b>Vortex</b></p>
         <p>Leaders: panther100 & Dibson</p>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section">
+    <section>
       <h2>❓ FAQs</h2>
-
-      <details class="card wide">
+      <details class="card">
         <summary>How can I join GodSpell?</summary>
-        <p>Join our Discord and contact the staff.</p>
+        <p>Join our Discord and apply for Trial/Core member.</p>
       </details>
-
-      <details class="card wide">
+      <details class="card">
         <summary>Which server do you play on?</summary>
-        <p>We play on pika-network.net (Survival).</p>
+        <p>We play Minecraft Survival on pika-network.net</p>
       </details>
-
-      <div class="card wide">
-        <a href="faq.html" class="discord-btn">
-          More queries? Click me!
-        </a>
-      </div>
+      <a class="btn" href="faq.html">More queries? Click me!</a>
     </section>
 
     <!-- GALLERY -->
-    <section class="section">
-      <h2>🖼️ Gallery</h2>
-      <div class="card wide">
-        <em>Images will be published soon ✨</em>
+    <section>
+      <h2>🖼 Gallery</h2>
+      <div class="card">
+        <p>Images will be published soon ✨</p>
       </div>
     </section>
 
     <!-- APPLY -->
-    <section class="section">
-      <h2>📨 Apply / Contact</h2>
-      <div class="card wide">
-        <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
-          Apply on Discord
-        </a>
+    <section>
+      <h2>📩 Apply / Contact</h2>
+      <div class="card">
+        <a class="btn" href="https://discord.gg/YQVF7sy2gR">Apply on Discord</a>
       </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
-      <p>Built with patience by</p>
-      <h3>DeadSlot</h3>
-      <p>© 2024–2026 GodSpell</p>
+      Built with patience by <b>DeadSlot</b><br />
+      © 2024–2026 GodSpell
     </footer>
 
-  </main>
+  </div>
+
+  <!-- MUSIC -->
+  <audio id="bg-music" src="sounds/music.mp3" loop></audio>
+  <audio id="click-sound" src="sounds/click.mp3"></audio>
+  <button id="music-toggle">🎵 Music</button>
 
   <script src="script.js"></script>
 </body>
