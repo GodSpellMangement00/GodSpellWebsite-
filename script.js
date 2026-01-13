@@ -20,7 +20,9 @@ const SERVER_IP = "pika-network.net";
 if (copyBtn) {
   copyBtn.addEventListener("click", () => {
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(SERVER_IP).then(showCopied).catch(showFallback);
+      navigator.clipboard.writeText(SERVER_IP)
+        .then(showCopied)
+        .catch(showFallback);
     } else {
       showFallback();
     }
@@ -62,41 +64,41 @@ revealItems.forEach(el => {
 /* =========================
    CLICK BUBBLES
 ========================= */
-function bubble(x, y) {
+function createBubble(x, y) {
   const b = document.createElement("span");
   b.className = "bubble";
   const size = Math.random() * 12 + 8;
-
   b.style.width = size + "px";
   b.style.height = size + "px";
   b.style.left = x - size / 2 + "px";
   b.style.top = y - size / 2 + "px";
-
   document.body.appendChild(b);
   setTimeout(() => b.remove(), 1200);
 }
 
 document.addEventListener("click", e => {
-  bubble(e.clientX, e.clientY);
+  createBubble(e.clientX, e.clientY);
 });
 
 /* =========================
-   FAQ SEARCH LOGIC
+   FAQ SEARCH (faq.html)
 ========================= */
 const searchInput = document.getElementById("faqSearch");
 const faqs = document.querySelectorAll("#all-faqs details");
 const resultBox = document.getElementById("faq-results");
 
-if (searchInput) {
+if (searchInput && faqs.length) {
   searchInput.addEventListener("input", () => {
     const query = searchInput.value.toLowerCase().trim();
     let found = false;
 
-    resultBox.style.display = "none";
-    resultBox.innerHTML = "";
+    if (resultBox) {
+      resultBox.style.display = "none";
+      resultBox.innerHTML = "";
+    }
 
     if (query === "") {
-      faqs.forEach(faq => (faq.style.display = "block"));
+      faqs.forEach(f => (f.style.display = "block"));
       return;
     }
 
@@ -110,7 +112,7 @@ if (searchInput) {
       }
     });
 
-    if (!found) {
+    if (!found && resultBox) {
       resultBox.style.display = "block";
       resultBox.innerHTML = `
         <p>No matching answer found.</p>
