@@ -9,30 +9,32 @@
 
 <body>
 
+  <!-- BACKGROUND LAYERS -->
+  <canvas id="bg-canvas"></canvas>
+  <div id="particles"></div>
+
   <!-- HERO -->
-  <div class="container hero">
+  <header class="hero">
     <h1>GodSpell</h1>
     <p class="subtitle">Not just grinding — we build a family.</p>
     <p class="subtitle">Established in 2024</p>
-    <a class="btn" href="https://discord.gg/YQVF7sy2gR">Join Our Discord</a>
-  </div>
+    <a class="btn primary" href="https://discord.gg/YQVF7sy2gR">Join Our Discord</a>
+  </header>
 
-  <div class="container">
+  <main class="container">
 
     <!-- STORY -->
-    <section>
+    <section class="section">
       <h2>📜 Our Story</h2>
       <div class="card">
-        <p>
-          GodSpell was started by Sam with his friends. Through struggle,
-          grinding, and patience, it grew into a trusted family connecting
-          people from different parts of the world.
-        </p>
+        GodSpell was started by <b>Sam</b> with his friends.  
+        Through struggle, grinding, and patience, it grew into a trusted family —  
+        connecting people from different parts of the world as brothers from different mothers.
       </div>
     </section>
 
     <!-- WHERE WE PLAY -->
-    <section>
+    <section class="section">
       <h2>🎮 Where We Play</h2>
       <div class="card">
         <p>Game: Minecraft</p>
@@ -43,9 +45,9 @@
     </section>
 
     <!-- RULES -->
-    <section>
+    <section class="section">
       <h2>📜 Rules & Values</h2>
-      <div class="card">
+      <div class="card list">
         <p>No toxicity, hate, or racism</p>
         <p>Polite language only</p>
         <p>No age limit — maturity required</p>
@@ -55,9 +57,9 @@
     </section>
 
     <!-- WHAT WE DO -->
-    <section>
+    <section class="section">
       <h2>🎯 What We Do</h2>
-      <div class="card">
+      <div class="card list">
         <p>Survival grinding & base building</p>
         <p>Chill talks & community bonding</p>
         <p>Giveaways & fun events</p>
@@ -66,84 +68,87 @@
     </section>
 
     <!-- LEADERSHIP -->
-    <section>
+    <section class="section">
       <h2>👑 Leadership</h2>
 
       <div class="card">
-        <p><b>Leaders</b></p>
+        <strong>Leaders</strong>
         <p>Sam</p>
         <p>Bronzey</p>
       </div>
 
       <div class="card">
-        <p><b>Developer</b></p>
+        <strong>Developer</strong>
         <p>DeadSlot</p>
       </div>
 
       <div class="card">
-        <p><b>Founder</b></p>
+        <strong>Founder</strong>
         <p>Adam</p>
       </div>
 
       <div class="card">
-        <p><b>Co-Founder</b></p>
+        <strong>Co-Founder</strong>
         <p>st_hardrocks</p>
       </div>
 
       <div class="card">
-        <p><b>Moderator</b></p>
+        <strong>Moderator</strong>
         <p>TheGod</p>
       </div>
     </section>
 
     <!-- MEMBERS -->
-    <section>
+    <section class="section">
       <h2>🌱 Members</h2>
-      <div class="card">▶ Core Members</div>
-      <div class="card">▶ Trial Members</div>
+      <div class="card collapsible">▶ Core Members</div>
+      <div class="card collapsible">▶ Trial Members</div>
     </section>
 
     <!-- ALLIES -->
-    <section>
+    <section class="section">
       <h2>🤝 Allied Clans</h2>
+
       <div class="card">
-        <p><b>Withers</b></p>
+        <strong>Withers</strong>
         <p>Leader: shubh_68</p>
         <p>Co-Leader: pmjk</p>
       </div>
+
       <div class="card">
-        <p><b>Vortex</b></p>
+        <strong>Vortex</strong>
         <p>Leaders: panther100 & Dibson</p>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section>
+    <section class="section">
       <h2>❓ FAQs</h2>
+
       <details class="card">
         <summary>How can I join GodSpell?</summary>
-        <p>Join our Discord and apply for Trial/Core member.</p>
+        <p>Join our Discord and apply for Trial or Core member.</p>
       </details>
+
       <details class="card">
         <summary>Which server do you play on?</summary>
-        <p>We play Minecraft Survival on pika-network.net</p>
+        <p>Minecraft Survival on pika-network.net</p>
       </details>
-      <a class="btn" href="faq.html">More queries? Click me!</a>
+
+      <a class="btn secondary" href="faq.html">More queries? Click me!</a>
     </section>
 
     <!-- GALLERY -->
-    <section>
+    <section class="section">
       <h2>🖼 Gallery</h2>
-      <div class="card">
-        <p>Images will be published soon ✨</p>
-      </div>
+      <div class="card muted">Images will be published soon ✨</div>
     </section>
 
     <!-- APPLY -->
-    <section>
+    <section class="section">
       <h2>📩 Apply / Contact</h2>
       <div class="card">
-        <a class="btn" href="https://discord.gg/YQVF7sy2gR">Apply on Discord</a>
+        <a class="btn primary" href="https://discord.gg/YQVF7sy2gR">Apply on Discord</a>
       </div>
     </section>
 
@@ -153,13 +158,16 @@
       © 2024–2026 GodSpell
     </footer>
 
-  </div>
+  </main>
 
-  <!-- MUSIC -->
+  <!-- AUDIO -->
   <audio id="bg-music" src="sounds/music.mp3" loop></audio>
   <audio id="click-sound" src="sounds/click.mp3"></audio>
+
+  <!-- MUSIC TOGGLE -->
   <button id="music-toggle">🎵 Music</button>
 
+  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
