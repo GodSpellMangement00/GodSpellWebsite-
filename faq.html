@@ -1,132 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GodSpell | FAQs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Same CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Frequently asked questions about GodSpell Minecraft Survival clan.">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <main class="content">
+  <!-- HERO -->
+  <header class="hero">
+    <h1>FAQs</h1>
+    <p class="subtitle">Search your questions below</p>
+  </header>
 
-    <!-- HERO -->
-    <header class="hero">
-      <h1>❓ GodSpell FAQs</h1>
-      <p class="tagline">Search your question below</p>
+  <main class="container">
 
-      <a href="index.html" class="discord-btn">
-        ← Back to Home
-      </a>
-    </header>
+    <!-- SEARCH BAR -->
+    <div class="faq-search-wrap">
+      <input
+        type="text"
+        id="faqSearch"
+        placeholder="Ask anything about GodSpell..."
+        autocomplete="off"
+      />
+    </div>
 
-    <!-- SEARCH -->
-    <input
-      type="text"
-      id="faqSearch"
-      placeholder="Type your question here..."
-      class="faq-search"
-    />
+    <!-- SEARCH RESULT MESSAGE -->
+    <div id="faq-results"></div>
 
-    <!-- RESULT -->
-    <div id="faq-results" class="card wide"></div>
+    <!-- FAQ LIST -->
+    <div id="all-faqs">
 
-    <!-- ALL FAQ LIST -->
-    <section class="section" id="all-faqs">
-
-      <details class="card wide">
+      <details class="card">
         <summary>What is GodSpell?</summary>
-        <p>GodSpell is a Minecraft Survival clan built as a calm, friendly family.</p>
+        <p>
+          GodSpell is a Minecraft Survival clan built as a family, not just a team.
+        </p>
       </details>
 
-      <details class="card wide">
-        <summary>Which server do you play on?</summary>
-        <p>We play on pika-network.net in Survival mode.</p>
+      <details class="card">
+        <summary>Which server does GodSpell play on?</summary>
+        <p>
+          We play on <b>pika-network.net</b> in Survival mode.
+        </p>
       </details>
 
-      <details class="card wide">
-        <summary>Who are the leaders?</summary>
-        <p>The leaders of GodSpell are Sam and Bronzey.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Is there any age limit?</summary>
-        <p>No age limit. We only expect maturity and respect.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Is toxicity allowed?</summary>
-        <p>No. Toxicity, hate, or disrespect is strictly not allowed.</p>
-      </details>
-
-      <details class="card wide">
+      <details class="card">
         <summary>How can I join GodSpell?</summary>
-        <p>Join our Discord server and contact the staff.</p>
+        <p>
+          Join our Discord server and apply for Trial or Core member.
+        </p>
       </details>
 
-      <details class="card wide">
-        <summary>How can I become a Core Member?</summary>
-        <p>Be active, respectful, and apply via Discord.</p>
+      <details class="card">
+        <summary>What are the rules?</summary>
+        <p>
+          No toxicity, no hate, polite language, respect everyone.
+        </p>
       </details>
 
-      <details class="card wide">
-        <summary>Do you only play Survival?</summary>
-        <p>Yes, GodSpell focuses only on Minecraft Survival.</p>
+      <details class="card">
+        <summary>Do you host giveaways or events?</summary>
+        <p>
+          Yes, we host giveaways, chill talks, and grinding sessions.
+        </p>
       </details>
 
-    </section>
+      <details class="card">
+        <summary>Can Trial members become staff?</summary>
+        <p>
+          Yes. Trial members can become staff before becoming Core members.
+        </p>
+      </details>
 
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2024–2026 GodSpell</p>
-    </footer>
+    </div>
+
+    <!-- DISCORD FALLBACK -->
+    <div id="faq-discord-fallback" style="display:none;">
+      <div class="card">
+        <p>
+          We couldn’t find an answer to your question.
+        </p>
+        <a class="btn" href="https://discord.gg/YQVF7sy2gR" target="_blank">
+          Join our Discord to clear your queries
+        </a>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn secondary" href="index.html">← Back to Home</a>
+    </div>
 
   </main>
 
-  <!-- FAQ SEARCH LOGIC -->
-  <script>
-    const searchInput = document.getElementById("faqSearch");
-    const resultsBox = document.getElementById("faq-results");
-    const allFaqs = document.querySelectorAll("#all-faqs details");
-
-    searchInput.addEventListener("input", () => {
-      const query = searchInput.value.toLowerCase().trim();
-      let found = false;
-
-      resultsBox.innerHTML = "";
-      resultsBox.style.display = "none";
-
-      if (query === "") {
-        allFaqs.forEach(faq => faq.style.display = "block");
-        return;
-      }
-
-      allFaqs.forEach(faq => {
-        const text = faq.textContent.toLowerCase();
-        if (text.includes(query)) {
-          faq.style.display = "block";
-          found = true;
-        } else {
-          faq.style.display = "none";
-        }
-      });
-
-      if (!found) {
-        resultsBox.style.display = "block";
-        resultsBox.innerHTML = `
-          <p>No answer found.</p>
-          <p>
-            👉 <a href="https://discord.gg/YQVF7sy2gR" target="_blank">
-              Join our Discord to get every answer
-            </a>
-          </p>
-        `;
-      }
-    });
-  </script>
+  <!-- JS (uses your existing script.js search logic) -->
+  <script src="script.js"></script>
 
 </body>
 </html>
