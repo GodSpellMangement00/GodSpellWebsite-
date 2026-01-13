@@ -1,14 +1,46 @@
 /* =========================
-   CLICK SOUND
+   AUDIO ELEMENTS
 ========================= */
 const clickSound = document.getElementById("click-sound");
+const bgMusic = document.getElementById("bg-music");
+const musicToggle = document.getElementById("music-toggle");
 
+/* =========================
+   AUDIO STATE
+========================= */
+let musicOn = false;
+
+/* Initial volumes */
+if (clickSound) clickSound.volume = 0.5;
+if (bgMusic) bgMusic.volume = 0.25;
+
+/* =========================
+   CLICK SOUND (ALL CLICKS)
+========================= */
 document.addEventListener("click", () => {
   if (!clickSound) return;
   clickSound.currentTime = 0;
-  clickSound.volume = 0.3;
   clickSound.play().catch(() => {});
 });
+
+/* =========================
+   MUSIC TOGGLE BUTTON
+========================= */
+if (musicToggle && bgMusic) {
+  musicToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // avoid double click sound
+
+    musicOn = !musicOn;
+
+    if (musicOn) {
+      bgMusic.play().catch(() => {});
+      musicToggle.textContent = "🔇 Music";
+    } else {
+      bgMusic.pause();
+      musicToggle.textContent = "🎵 Music";
+    }
+  });
+}
 
 /* =========================
    COPY SERVER IP
@@ -21,7 +53,11 @@ if (copyBtn) {
   copyBtn.addEventListener("click", () => {
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(SERVER_IP)
-        .then(showCopied)
+        .then(() => {
+          const old = copyBtn.innerText;
+          copyBtn.innerText = "IP Copied ✔";
+          setTimeout(() => (copyBtn.innerText = old), 2000);
+        })
         .catch(showFallback);
     } else {
       showFallback();
@@ -29,19 +65,14 @@ if (copyBtn) {
   });
 }
 
-function showCopied() {
-  const old = copyBtn.innerText;
-  copyBtn.innerText = "IP Copied ✔";
-  setTimeout(() => (copyBtn.innerText = old), 2000);
-}
-
 function showFallback() {
+  if (!ipText) return;
   ipText.style.display = "block";
   ipText.innerText = "Server IP: " + SERVER_IP + " (long press to copy)";
 }
 
 /* =========================
-   SCROLL REVEAL
+   SCROLL REVEAL ANIMATION
 ========================= */
 const revealItems = document.querySelectorAll(".section, .card, footer");
 
@@ -62,21 +93,23 @@ revealItems.forEach(el => {
 });
 
 /* =========================
-   CLICK BUBBLES
+   CLICK BUBBLES EFFECT
 ========================= */
 function createBubble(x, y) {
-  const b = document.createElement("span");
-  b.className = "bubble";
+  const bubble = document.createElement("span");
+  bubble.className = "bubble";
+
   const size = Math.random() * 12 + 8;
-  b.style.width = size + "px";
-  b.style.height = size + "px";
-  b.style.left = x - size / 2 + "px";
-  b.style.top = y - size / 2 + "px";
-  document.body.appendChild(b);
-  setTimeout(() => b.remove(), 1200);
+  bubble.style.width = size + "px";
+  bubble.style.height = size + "px";
+  bubble.style.left = x - size / 2 + "px";
+  bubble.style.top = y - size / 2 + "px";
+
+  document.body.appendChild(bubble);
+  setTimeout(() => bubble.remove(), 1200);
 }
 
-document.addEventListener("click", e => {
+document.addEventListener("click", (e) => {
   createBubble(e.clientX, e.clientY);
 });
 
@@ -98,7 +131,7 @@ if (searchInput && faqs.length) {
     }
 
     if (query === "") {
-      faqs.forEach(f => (f.style.display = "block"));
+      faqs.forEach(faq => (faq.style.display = "block"));
       return;
     }
 
