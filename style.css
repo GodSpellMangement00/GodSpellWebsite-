@@ -1,163 +1,134 @@
-/* =====================
-   ROOT THEME
-===================== */
-:root {
-  --bg-main: radial-gradient(circle at top, #2b1b4d, #120a23 70%);
-  --card-bg: rgba(140, 95, 255, 0.18);
-  --card-border: rgba(170, 120, 255, 0.25);
-  --accent: #a777ff;
-  --text-main: #f1edff;
-  --text-muted: #c9bdf2;
-}
-
-/* =====================
-   BASE
-===================== */
+/* ===== RESET ===== */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
-  margin: 0;
   font-family: "Poppins", system-ui, sans-serif;
-  background: var(--bg-main);
-  color: var(--text-main);
-  min-height: 100vh;
+  background: radial-gradient(circle at top, #2c1b4e 0%, #120a23 70%);
+  color: #f3ecff;
+  overflow-x: hidden;
 }
 
-/* =====================
-   CONTAINER
-===================== */
+/* ===== MAIN CONTAINER ===== */
 .container {
-  width: 100%;
-  max-width: 820px;
+  max-width: 780px;
   margin: auto;
-  padding: 24px 16px 80px;
+  padding: 26px 16px 90px;
 }
 
-/* =====================
-   HEADINGS
-===================== */
+/* ===== TITLES ===== */
 h1 {
   text-align: center;
   font-size: 2.1rem;
+  font-weight: 700;
   margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #c9b9ff;
+  margin-bottom: 22px;
 }
 
 h2 {
   text-align: center;
-  margin: 36px 0 14px;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  margin: 34px 0 14px;
 }
 
-/* =====================
-   CARD SYSTEM (FIXED)
-===================== */
+/* ===== CARDS ===== */
 .card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  background: rgba(145, 110, 255, 0.18);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
-  padding: 14px 18px;              /* FIX: smaller padding */
+  padding: 14px 18px;
   margin-bottom: 14px;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.25);
-  display: flex;                   /* FIX: center text */
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(130, 90, 255, 0.18);
 }
 
+/* ===== TEXT ===== */
 .card p,
 .card li {
-  margin: 6px 0;
-  line-height: 1.45;
-  color: var(--text-muted);
-}
-
-/* =====================
-   LEADERSHIP BOXES
-===================== */
-.role-card {
-  text-align: center;
-}
-
-.role-card strong {
-  display: block;
-  font-size: 1.05rem;
-  margin-bottom: 4px;
-}
-
-/* =====================
-   COLLAPSIBLE ROWS
-===================== */
-.toggle {
-  cursor: pointer;
-  user-select: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.toggle span {
   font-size: 0.95rem;
+  line-height: 1.45;
+  color: #e0d7ff;
+  list-style: none;
 }
 
-/* =====================
-   BUTTONS
-===================== */
+/* ===== BUTTONS ===== */
 .btn {
   display: inline-block;
-  margin: 14px auto 0;
-  padding: 10px 22px;
-  background: linear-gradient(135deg, #9f7cff, #7b4dff);
-  color: white;
+  margin-top: 14px;
+  padding: 10px 24px;
   border-radius: 999px;
+  background: linear-gradient(135deg, #a78bff, #7b4dff);
+  color: white;
+  font-size: 0.9rem;
   text-decoration: none;
-  font-size: 0.95rem;
-  box-shadow: 0 0 20px rgba(160,120,255,.55);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* =====================
-   MUSIC BUTTON
-===================== */
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== FAQ BUTTON ===== */
+.faq-btn {
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* ===== MUSIC BUTTON ===== */
 #music-toggle {
   position: fixed;
-  right: 14px;
-  bottom: 16px;
-  background: var(--accent);
+  right: 16px;
+  bottom: 18px;
   border: none;
-  color: #fff;
   padding: 10px 14px;
   border-radius: 999px;
-  font-size: 0.85rem;
-  box-shadow: 0 0 18px rgba(160,120,255,.7);
+  background: linear-gradient(135deg, #a78bff, #7b4dff);
+  color: white;
+  font-size: 0.8rem;
+  z-index: 1000;
 }
 
-/* =====================
-   FAQ FIX
-===================== */
-.faq-item {
-  text-align: left;
-  font-size: 0.95rem;
+/* ===== DETAILS / FAQ ===== */
+details {
+  margin-bottom: 10px;
 }
 
-/* =====================
-   FOOTER
-===================== */
+summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #e7ddff;
+}
+
+/* ===== FOOTER ===== */
 footer {
   margin-top: 50px;
   text-align: center;
   font-size: 0.75rem;
-  color: #b5a8ee;
+  color: #b7a9ee;
 }
 
-/* =====================
-   MOBILE TUNING
-===================== */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.85rem;
-  }
-  .card {
-    padding: 12px 16px;
-  }
+/* ===== STAR BACKGROUND ===== */
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.6;
+  border-radius: 50%;
+  animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.2; }
+  to { opacity: 0.8; }
 }
