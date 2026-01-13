@@ -3,32 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GodSpell</title>
+  <title>GodSpell | Minecraft Survival Clan</title>
+
+  <!-- META -->
+  <meta name="description" content="GodSpell is a calm Minecraft Survival clan on Pika Network. Built as a family, not just a grind. Established in 2024.">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-
-  <!-- BACKGROUND LAYERS -->
-  <canvas id="bg-canvas"></canvas>
-  <div id="particles"></div>
 
   <!-- HERO -->
   <header class="hero">
     <h1>GodSpell</h1>
     <p class="subtitle">Not just grinding — we build a family.</p>
     <p class="subtitle">Established in 2024</p>
-    <a class="btn primary" href="https://discord.gg/YQVF7sy2gR">Join Our Discord</a>
+
+    <a class="btn" href="https://discord.gg/YQVF7sy2gR" target="_blank">
+      Join Our Discord
+    </a>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main class="container">
 
     <!-- STORY -->
     <section class="section">
       <h2>📜 Our Story</h2>
       <div class="card">
-        GodSpell was started by <b>Sam</b> with his friends.  
-        Through struggle, grinding, and patience, it grew into a trusted family —  
+        GodSpell was started by <b>Sam</b> with his friends.
+        Through struggle, patience, and grinding, it grew into a trusted family —
         connecting people from different parts of the world as brothers from different mothers.
       </div>
     </section>
@@ -40,7 +45,8 @@
         <p>Game: Minecraft</p>
         <p>Server: <b>pika-network.net</b></p>
         <p>Mode: Survival</p>
-        <button class="btn">Copy Server IP</button>
+
+        <button class="btn copy-ip">Copy Server IP</button>
       </div>
     </section>
 
@@ -56,7 +62,7 @@
       </div>
     </section>
 
-    <!-- WHAT WE DO -->
+    <!-- ACTIVITIES -->
     <section class="section">
       <h2>🎯 What We Do</h2>
       <div class="card list">
@@ -101,8 +107,35 @@
     <!-- MEMBERS -->
     <section class="section">
       <h2>🌱 Members</h2>
-      <div class="card collapsible">▶ Core Members</div>
-      <div class="card collapsible">▶ Trial Members</div>
+
+      <div class="card collapsible">
+        ▶ Core Members
+        <div class="hidden-content">
+          <p>PIPIPPO</p>
+          <p>BladeOnChoppa</p>
+          <p>Minato672</p>
+          <p>Devilsking1</p>
+          <p>MrBeast_07</p>
+          <p>Slayerknight69</p>
+          <p>cottoncloud01</p>
+          <p>Pro_Dreamy</p>
+          <p>sir_spectro</p>
+          <p>Eight</p>
+          <p>walidwolly09</p>
+        </div>
+      </div>
+
+      <div class="card collapsible">
+        ▶ Trial Members
+        <div class="hidden-content">
+          <p>VannahX</p>
+          <p>MoonSukes</p>
+          <p>blazacooks</p>
+          <p>BarGaming_</p>
+          <p>KrishnaYt_129</p>
+          <p>Slayer_of_Terra</p>
+        </div>
+      </div>
     </section>
 
     <!-- ALLIES -->
@@ -132,23 +165,29 @@
 
       <details class="card">
         <summary>Which server do you play on?</summary>
-        <p>Minecraft Survival on pika-network.net</p>
+        <p>We play Minecraft Survival on pika-network.net</p>
       </details>
 
-      <a class="btn secondary" href="faq.html">More queries? Click me!</a>
+      <a class="btn secondary" href="faq.html">
+        More queries? Click me!
+      </a>
     </section>
 
     <!-- GALLERY -->
     <section class="section">
       <h2>🖼 Gallery</h2>
-      <div class="card muted">Images will be published soon ✨</div>
+      <div class="card muted">
+        Images will be published soon ✨
+      </div>
     </section>
 
     <!-- APPLY -->
     <section class="section">
       <h2>📩 Apply / Contact</h2>
       <div class="card">
-        <a class="btn primary" href="https://discord.gg/YQVF7sy2gR">Apply on Discord</a>
+        <a class="btn" href="https://discord.gg/YQVF7sy2gR" target="_blank">
+          Apply on Discord
+        </a>
       </div>
     </section>
 
@@ -164,10 +203,10 @@
   <audio id="bg-music" src="sounds/music.mp3" loop></audio>
   <audio id="click-sound" src="sounds/click.mp3"></audio>
 
-  <!-- MUSIC TOGGLE -->
+  <!-- MUSIC BUTTON -->
   <button id="music-toggle">🎵 Music</button>
 
-  <!-- SCRIPT -->
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
