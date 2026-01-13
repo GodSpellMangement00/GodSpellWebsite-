@@ -1,197 +1,252 @@
-/* ========== RESET ========== */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ========== BODY & BACKGROUND ========== */
+/* ================= BODY ================= */
 body {
   font-family: "Poppins", system-ui, sans-serif;
-  background: linear-gradient(180deg, #120b24, #07040f);
-  color: #e8e1ff;
+  background: radial-gradient(circle at top, #1a0f33, #07040f 70%);
+  color: #eee8ff;
   overflow-x: hidden;
 }
 
-/* Canvas & particle layers */
-#bg-canvas,
-#particles {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ========== HERO ========== */
+/* ================= HERO ================= */
 .hero {
   text-align: center;
-  padding: 70px 16px 50px;
+  padding: 80px 16px 60px;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
-  margin-bottom: 8px;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(180, 120, 255, 0.9),
+    0 0 30px rgba(140, 90, 255, 0.6);
 }
 
 .subtitle {
-  font-size: 0.9rem;
-  color: #bdb1ff;
-  margin-top: 6px;
+  font-size: 0.95rem;
+  color: #d6c8ff;
+  margin-top: 8px;
 }
 
-/* ========== CONTAINER ========== */
+/* ================= CONTAINER ================= */
 .container {
-  max-width: 760px;
+  max-width: 780px;
   margin: auto;
-  padding: 20px 16px 80px;
+  padding: 24px 16px 90px;
 }
 
-/* ========== SECTIONS ========== */
+/* ================= SECTIONS ================= */
 .section {
-  margin-bottom: 48px;
+  margin-bottom: 56px;
 }
 
 .section h2 {
   text-align: center;
-  font-size: 1.35rem;
-  margin-bottom: 18px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px rgba(160, 120, 255, 0.6);
 }
 
-/* ========== CARDS ========== */
+/* ================= CARDS ================= */
 .card {
-  background: rgba(38, 28, 70, 0.88);
-  border-radius: 14px;
-  padding: 12px 16px;
-  margin-bottom: 14px;
+  background: rgba(32, 20, 60, 0.92);
+  border-radius: 16px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
   text-align: center;
-  line-height: 1.4;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  animation: idleFloat 7s ease-in-out infinite;
+  line-height: 1.45;
+  position: relative;
+
+  box-shadow:
+    0 0 10px rgba(160, 120, 255, 0.25),
+    0 0 28px rgba(120, 80, 255, 0.45),
+    inset 0 0 12px rgba(180, 140, 255, 0.15);
+
+  animation: neonFloat 8s ease-in-out infinite;
 }
 
-/* smaller cards for lists */
+/* Neon idle animation */
+@keyframes neonFloat {
+  0% {
+    box-shadow:
+      0 0 10px rgba(160, 120, 255, 0.25),
+      0 0 28px rgba(120, 80, 255, 0.45),
+      inset 0 0 12px rgba(180, 140, 255, 0.15);
+  }
+  50% {
+    box-shadow:
+      0 0 16px rgba(190, 150, 255, 0.55),
+      0 0 42px rgba(150, 100, 255, 0.75),
+      inset 0 0 18px rgba(200, 160, 255, 0.3);
+  }
+  100% {
+    box-shadow:
+      0 0 10px rgba(160, 120, 255, 0.25),
+      0 0 28px rgba(120, 80, 255, 0.45),
+      inset 0 0 12px rgba(180, 140, 255, 0.15);
+  }
+}
+
+/* List cards */
 .card.list p {
   margin: 4px 0;
 }
 
+/* Muted card */
 .card.muted {
   opacity: 0.75;
 }
 
-/* subtle idle animation */
-@keyframes idleFloat {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-2px); }
-  100% { transform: translateY(0); }
-}
-
-/* collapsible cards */
-.collapsible {
-  cursor: pointer;
-  opacity: 0.9;
-}
-
-/* ========== TEXT ========== */
+/* ================= TEXT ================= */
 .card p,
 .card strong {
   font-size: 0.95rem;
-  color: #ded7ff;
+  color: #e4dbff;
 }
 
-/* ========== BUTTONS ========== */
-.btn {
-  display: inline-block;
-  margin-top: 14px;
-  padding: 10px 22px;
+/* ================= BUTTONS ================= */
+.btn,
+button {
+  display: block;
+  margin: 18px auto 0;
+  padding: 11px 26px;
   border-radius: 999px;
-  background: #7b5cff;
+  background: linear-gradient(135deg, #8f6bff, #5b3dd6);
   color: white;
   font-size: 0.9rem;
-  text-decoration: none;
   border: none;
+  text-decoration: none;
+
+  box-shadow:
+    0 0 12px rgba(160, 120, 255, 0.6),
+    0 0 26px rgba(120, 80, 255, 0.6);
 }
 
-.btn.secondary {
-  background: #5b47b8;
+.btn:active,
+button:active {
+  transform: scale(0.95);
 }
 
-.btn:active {
-  transform: scale(0.96);
+/* ================= FAQ SEARCH ================= */
+.faq-search-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 36px;
 }
 
-/* ========== DETAILS / FAQ ========== */
+#faqSearch {
+  width: 100%;
+  max-width: 540px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  background: rgba(25, 15, 55, 0.95);
+  color: #fff;
+  font-size: 1rem;
+
+  box-shadow:
+    0 0 14px rgba(180, 140, 255, 0.6),
+    0 0 34px rgba(140, 90, 255, 0.8);
+}
+
+#faqSearch::placeholder {
+  color: #cbbcff;
+}
+
+/* ================= DETAILS / FAQ ================= */
 details summary {
   cursor: pointer;
   font-size: 0.95rem;
 }
 
 details p {
-  margin-top: 8px;
-  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
-/* ========== FOOTER ========== */
-footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 0.75rem;
-  color: #9f95d6;
-}
-
-/* ========== MUSIC BUTTON ========== */
+/* ================= MUSIC BUTTON ================= */
 #music-toggle {
   position: fixed;
-  right: 16px;
-  bottom: 18px;
-  border: none;
+  right: 18px;
+  bottom: 20px;
   padding: 10px 14px;
   border-radius: 999px;
-  background: #7b5cff;
+  background: linear-gradient(135deg, #8f6bff, #5b3dd6);
   color: white;
-  font-size: 0.8rem;
   z-index: 1000;
+
+  box-shadow:
+    0 0 16px rgba(160, 120, 255, 0.8),
+    0 0 30px rgba(120, 80, 255, 0.8);
 }
 
-/* ========== BUBBLES (for JS) ========== */
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 70px;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #b8aaff;
+}
+
+/* ================= REVEAL ANIMATION ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.9s ease;
+}
+
+.reveal-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= BUBBLES ================= */
 .bubble {
   position: fixed;
   width: 10px;
   height: 10px;
-  background: rgba(180,140,255,0.6);
+  background: rgba(200, 160, 255, 0.75);
   border-radius: 50%;
   pointer-events: none;
   animation: bubblePop 1.2s ease-out forwards;
 }
 
 @keyframes bubblePop {
-  from { transform: scale(1); opacity: 0.8; }
-  to   { transform: scale(2); opacity: 0; }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
-/* ========== FALLING LEAVES (for JS) ========== */
+/* ================= FALLING LEAVES ================= */
 .leaf {
   position: fixed;
   top: -20px;
   width: 12px;
   height: 12px;
-  background: rgba(160,120,255,0.7);
+  background: rgba(180, 140, 255, 0.7);
   border-radius: 3px;
   animation: fall linear forwards;
 }
 
 @keyframes fall {
   to {
-    transform: translateY(110vh) rotate(360deg);
+    transform: translateY(120vh) rotate(360deg);
     opacity: 0;
   }
 }
 
-/* ========== MOBILE ========== */
+/* ================= MOBILE ================= */
 @media (max-width: 520px) {
   .hero h1 {
-    font-size: 1.9rem;
+    font-size: 2rem;
   }
   .section {
-    margin-bottom: 52px;
+    margin-bottom: 60px;
   }
 }
