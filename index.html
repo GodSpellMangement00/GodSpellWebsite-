@@ -4,30 +4,29 @@
   <meta charset="UTF-8">
   <title>GodSpell | Minecraft Survival Clan</title>
 
-  <meta name="description" content="GodSpell is a Minecraft Survival clan on Pika Network. A calm, cozy community built as a family. Established in 2024.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GodSpell is a calm Minecraft Survival clan on Pika Network. Established 2024.">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- CLICK SOUND (FIXED PATH) -->
+  <!-- AUDIO -->
   <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+  <audio id="bg-music" src="sounds/music.mp3" loop></audio>
 
-  <!-- BACKGROUND -->
-  <div class="aesthetic-bg">
-    <div class="gradient-layer"></div>
-    <div class="noise-layer"></div>
-    <div class="light-orbs"></div>
+  <!-- MUSIC CONTROL -->
+  <div class="audio-controls">
+    <button id="music-toggle">🎵 Music</button>
   </div>
 
+  <!-- MAIN CONTENT -->
   <main class="content">
 
-    <!-- HERO -->
     <header class="hero">
       <h1>GodSpell</h1>
-      <p class="tagline">Not just grinding — building a family across the world.</p>
+      <p class="tagline">Not just grinding — we build a family.</p>
       <p class="established">Established in 2024</p>
 
       <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
@@ -35,60 +34,26 @@
       </a>
     </header>
 
-    <!-- STORY -->
     <section class="section">
       <h2>📜 Our Story</h2>
       <div class="card wide">
         <p>
           GodSpell was started by Sam with his friends.
-          Through struggle, patience, and grind, it became a family.
+          Through struggle and grind, it became a trusted family.
         </p>
       </div>
     </section>
 
-    <!-- GAME INFO -->
     <section class="section">
       <h2>🎮 Where We Play</h2>
       <div class="card wide">
-        <p><strong>Game:</strong> Minecraft</p>
         <p><strong>Server:</strong> pika-network.net</p>
-        <p><strong>Mode:</strong> Survival</p>
-
-        <button class="discord-btn copy-ip">Copy Server IP</button>
-        <p id="server-ip" style="display:none;margin-top:12px;">
-          pika-network.net
-        </p>
+        <p><strong>Mode:</strong> Minecraft Survival</p>
       </div>
     </section>
 
-    <!-- VALUES -->
     <section class="section">
-      <h2>🧠 Philosophy & Values</h2>
-      <div class="card wide">
-        <ul>
-          <li>Calm, cozy, friendly environment</li>
-          <li>Trusted and loyal members</li>
-          <li>No toxicity or hate</li>
-          <li>Respect everyone</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- GOALS -->
-    <section class="section">
-      <h2>🎯 Our Goals</h2>
-      <div class="card wide">
-        <ul>
-          <li>Build the best survival team</li>
-          <li>Create massive bases and farms</li>
-          <li>Care for every member</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- LEADERSHIP -->
-    <section class="section">
-      <h2>👑 Leadership & Staff</h2>
+      <h2>👑 Leadership</h2>
 
       <div class="card">
         <h3>Leaders</h3>
@@ -106,43 +71,15 @@
       </div>
     </section>
 
-    <!-- GALLERY -->
     <section class="section">
       <h2>🖼️ Gallery</h2>
       <div class="card wide">
-        <p><em>Images will be published soon ✨</em></p>
+        <em>Images will be published soon ✨</em>
       </div>
     </section>
 
-    <!-- FAQs -->
     <section class="section">
-      <h2>❓ FAQs</h2>
-
-      <details class="card wide">
-        <summary>What is GodSpell?</summary>
-        <p>GodSpell is a Minecraft Survival clan built as a family.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>Which server do you play on?</summary>
-        <p>We play on pika-network.net in Survival mode.</p>
-      </details>
-
-      <details class="card wide">
-        <summary>How can I join?</summary>
-        <p>Join our Discord server and contact the staff.</p>
-      </details>
-
-      <div class="card wide">
-        <a href="faq.html" class="discord-btn">
-          More queries? Click me!
-        </a>
-      </div>
-    </section>
-
-    <!-- APPLY -->
-    <section class="section">
-      <h2>📨 Apply / Contact</h2>
+      <h2>📨 Apply</h2>
       <div class="card wide">
         <a href="https://discord.gg/YQVF7sy2gR" target="_blank" class="discord-btn">
           Apply on Discord
@@ -150,7 +87,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <p>Built with patience by</p>
       <h3>DeadSlot</h3>
@@ -160,6 +96,42 @@
   </main>
 
   <!-- JS -->
-  <script src="script.js"></script>
+  <script>
+    const clickSound = document.getElementById("click-sound");
+    const bgMusic = document.getElementById("bg-music");
+    const musicToggle = document.getElementById("music-toggle");
+
+    let musicOn = false;
+    let musicStarted = false;
+
+    bgMusic.volume = 0.25;
+    clickSound.volume = 0.5;
+
+    document.addEventListener("click", () => {
+      // click sound
+      clickSound.currentTime = 0;
+      clickSound.play().catch(() => {});
+
+      // start music only once
+      if (!musicStarted && musicOn) {
+        bgMusic.play().catch(() => {});
+        musicStarted = true;
+      }
+    });
+
+    musicToggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      musicOn = !musicOn;
+
+      if (musicOn) {
+        bgMusic.play().catch(() => {});
+        musicToggle.textContent = "🔇 Music";
+      } else {
+        bgMusic.pause();
+        musicToggle.textContent = "🎵 Music";
+      }
+    });
+  </script>
+
 </body>
 </html>
