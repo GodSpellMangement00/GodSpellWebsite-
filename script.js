@@ -81,3 +81,27 @@ if (copyBtn) {
     });
   });
 }
+const faqInput = document.getElementById("faqSearch");
+const faqs = document.querySelectorAll("#all-faqs details");
+const results = document.getElementById("faq-results");
+
+if (faqInput) {
+  faqInput.addEventListener("input", () => {
+    const query = faqInput.value.toLowerCase().trim();
+    let found = false;
+
+    faqs.forEach(faq => {
+      if (faq.innerText.toLowerCase().includes(query)) {
+        faq.style.display = "block";
+        found = true;
+      } else {
+        faq.style.display = "none";
+      }
+    });
+
+    results.innerHTML = (!found && query)
+      ? `<div class="card">No answer found.<br>
+         <a class="btn" href="https://discord.gg/YQVF7sy2gR">Join our Discord</a></div>`
+      : "";
+  });
+}
