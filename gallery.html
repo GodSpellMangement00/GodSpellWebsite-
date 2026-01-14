@@ -2,30 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GodSpell | Bases & Builds</title>
+  <title>GodSpell | Our Bases & Builds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="gallery-page">
 
-  <h1 class="gallery-title">Our Bases & Builds</h1>
-  <p class="gallery-sub">Survival creations by GodSpell members</p>
+<header class="gallery-header">
+  <h1>✨ Our Bases & Builds</h1>
+  <p>Survival creations by GodSpell members</p>
+</header>
 
-  <div class="gallery-grid">
-    <img src="./gallery/base1.jpg">
-    <img src="./gallery/base2.jpg">
-    <img src="./gallery/base3.jpg">
-    <img src="./gallery/base4.jpg">
-    <img src="./gallery/base5.jpg">
-    <img src="./gallery/base6.jpg">
-    <img src="./gallery/base7.jpg">
-    <img src="./gallery/base8.jpg">
-    <img src="./gallery/base9.jpg">
-    <img src="./gallery/base10.jpg">
-    <img src="./gallery/base11.jpg">
-    <img src="./gallery/base12.jpg">
-  </div>
+<section class="gallery-grid">
+  <img src="gallery/base1.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base2.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base3.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base4.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base5.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base6.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base7.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base8.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base9.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base10.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base11.jpg" onclick="openLightbox(this.src)">
+  <img src="gallery/base12.jpg" onclick="openLightbox(this.src)">
+</section>
 
-  <a href="index.html" class="back-btn">← Back to Home</a>
+<div class="gallery-back">
+  <a href="index.html" class="btn-glow">← Back to Home</a>
+</div>
 
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img">
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
