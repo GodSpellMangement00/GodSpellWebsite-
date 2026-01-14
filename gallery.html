@@ -1,87 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>GodSpell | Bases & Builds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: radial-gradient(circle at top, #2b1a4d, #0b0616);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+    }
 
-  <meta name="description" content="GodSpell Minecraft Survival Bases and Builds Gallery">
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #9b6cff;
+    }
 
-  <link rel="stylesheet" href="style.css" />
+    p.subtitle {
+      text-align: center;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      background: rgba(155,108,255,0.08);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 0 12px rgba(155,108,255,0.25);
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(155,108,255,0.6);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Fullscreen preview */
+    .preview {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .preview img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 16px;
+      box-shadow: 0 0 30px #9b6cff;
+    }
+
+    .preview.show {
+      display: flex;
+    }
+
+    .back-btn {
+      display: block;
+      margin: 50px auto 0;
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #8f6bff, #b58cff);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      text-align: center;
+      width: fit-content;
+      box-shadow: 0 0 20px rgba(155,108,255,0.6);
+    }
+  </style>
 </head>
-
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <h1>Our Bases & Builds</h1>
-    <p class="subtitle">Survival creations by GodSpell members</p>
-  </header>
+  <h1>Our Bases & Builds</h1>
+  <p class="subtitle">Survival creations by GodSpell members</p>
 
-  <main class="container">
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="gallery/base1.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base2.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base3.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base4.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base5.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base6.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base7.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base8.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base9.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base10.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base11.jpg"></div>
+    <div class="gallery-item"><img src="gallery/base12.jpg"></div>
+  </div>
 
-    <!-- GALLERY GRID -->
-    <section class="section">
-      <div class="gallery-grid">
+  <a class="back-btn" href="index.html">← Back to Home</a>
 
-        <div class="gallery-item">
-          <img src="gallery/base1.jpg" alt="GodSpell Base 1">
-        </div>
+  <!-- Image preview -->
+  <div class="preview" id="preview">
+    <img id="previewImg">
+  </div>
 
-        <div class="gallery-item">
-          <img src="gallery/base2.jpg" alt="GodSpell Base 2">
-        </div>
+  <script>
+    const items = document.querySelectorAll('.gallery-item img');
+    const preview = document.getElementById('preview');
+    const previewImg = document.getElementById('previewImg');
 
-        <div class="gallery-item">
-          <img src="gallery/base3.jpg" alt="GodSpell Base 3">
-        </div>
+    items.forEach(img => {
+      img.onclick = () => {
+        previewImg.src = img.src;
+        preview.classList.add('show');
+      };
+    });
 
-        <div class="gallery-item">
-          <img src="gallery/base4.jpg" alt="GodSpell Base 4">
-        </div>
+    preview.onclick = () => {
+      preview.classList.remove('show');
+    };
+  </script>
 
-        <div class="gallery-item">
-          <img src="gallery/base5.jpg" alt="GodSpell Base 5">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base6.jpg" alt="GodSpell Base 6">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base7.jpg" alt="GodSpell Base 7">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base8.jpg" alt="GodSpell Base 8">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base9.jpg" alt="GodSpell Base 9">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base10.jpg" alt="GodSpell Base 10">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base11.jpg" alt="GodSpell Base 11">
-        </div>
-
-        <div class="gallery-item">
-          <img src="gallery/base12.jpg" alt="GodSpell Base 12">
-        </div>
-
-      </div>
-    </section>
-
-    <!-- BACK BUTTON -->
-    <div style="text-align:center;margin-top:40px;">
-      <a class="btn secondary" href="index.html">← Back to Home</a>
-    </div>
-
-  </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
