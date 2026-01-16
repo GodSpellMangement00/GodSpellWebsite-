@@ -140,3 +140,85 @@ function openLightbox(src) {
 function closeLightbox() {
   document.getElementById("lightbox").style.display = "none";
 }
+/* ===== CLICK SOUND (optional) ===== */
+const clickSound = new Audio("sounds/click.mp3");
+clickSound.volume = 0.4;
+
+document.addEventListener("click", () => {
+  clickSound.currentTime = 0;
+  clickSound.play().catch(()=>{});
+});
+
+/* ===== BUBBLE CLICK EFFECT ===== */
+document.addEventListener("click", (e) => {
+  const bubble = document.createElement("span");
+  bubble.style.left = e.clientX + "px";
+  bubble.style.top = e.clientY + "px";
+  bubble.className = "click-bubble";
+  document.body.appendChild(bubble);
+
+  setTimeout(() => bubble.remove(), 600);
+});
+
+/* ===== MEMBER TOGGLE ===== */
+function toggleMembers(openId, closeId) {
+  document.getElementById(openId).classList.toggle("show");
+  document.getElementById(closeId).classList.remove("show");
+}
+
+/* ===== FAQ TOGGLE ===== */
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.addEventListener("click", () => {
+    const ans = item.querySelector(".faq-answer");
+    ans.style.display = ans.style.display === "block" ? "none" : "block";
+  });
+});
+
+/* ===== FALLING LEAVES / PARTICLES ===== */
+const canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+const ctx = canvas.getContext("2d");
+
+canvas.style.position = "fixed";
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.pointerEvents = "none";
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+function createParticle() {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: -10,
+    size: Math.random() * 6 + 4,
+    speed: Math.random() * 1.5 + 0.5,
+    drift: Math.random() * 1 - 0.5
+  });
+}
+
+function animate() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach((p, i) => {
+    p.y += p.speed;
+    p.x += p.drift;
+    ctx.fillStyle = "rgba(180,140,255,0.6)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (p.y > canvas.height) particles.splice(i,1);
+  });
+
+  if (particles.length < 40) createParticle();
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+/* ===== RESIZE FIX ===== */
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
