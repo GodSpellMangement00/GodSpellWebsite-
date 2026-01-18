@@ -1,153 +1,160 @@
-/* ===== RESET ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ========== GLOBAL ========== */
+:root{
+  --bg:#0b0618;
+  --card:rgba(120,80,200,.18);
+  --glow:rgba(160,120,255,.6);
+  --text:#f2eeff;
+  --muted:#bcb4ff;
+  --accent:#9b7bff;
 }
 
-html, body {
-  width: 100%;
-  min-height: 100%;
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(circle at top,#24104a,#0b0618 60%);
+  color:var(--text);
+  font-family:Segoe UI,system-ui;
+  line-height:1.6;
 }
 
-body {
-  font-family: "Poppins", Arial, sans-serif;
-  background: radial-gradient(circle at top, #2a145a 0%, #0c061a 60%);
-  color: #eee;
-  text-align: center;
-  line-height: 1.6;
+/* ========== SECTIONS ========== */
+.section{
+  max-width:1000px;
+  margin:40px auto;
+  padding:30px;
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:0 0 30px var(--glow);
+  animation:fadeUp .8s ease;
 }
 
-/* ===== GLOBAL SPACING ===== */
-section {
-  max-width: 900px;
-  margin: 48px auto;
-  padding: 26px;
+h1,h2{
+  text-align:center;
+  margin-bottom:20px;
+  text-shadow:0 0 15px var(--glow);
 }
 
-/* ===== HEADINGS ===== */
-h1, h2, h3 {
-  margin-bottom: 16px;
-  font-weight: 600;
-  color: #f0eaff;
+/* ========== CARDS ========== */
+.card{
+  background:rgba(80,50,150,.25);
+  padding:18px;
+  margin:14px 0;
+  border-radius:14px;
+  text-align:center;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 25px var(--glow);
 }
 
-h1 {
-  font-size: 2.2rem;
+/* ========== BUTTONS ========== */
+button,.btn{
+  display:inline-block;
+  padding:12px 22px;
+  border:none;
+  border-radius:999px;
+  background:linear-gradient(135deg,#7a5cff,#b08cff);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 0 18px var(--glow);
+  transition:.3s;
+}
+button:hover,.btn:hover{
+  transform:scale(1.05);
 }
 
-h2 {
-  font-size: 1.6rem;
+/* ========== FAQ SEARCH (GOOGLE STYLE) ========== */
+.search-wrap{
+  display:flex;
+  justify-content:center;
+  margin-bottom:25px;
 }
 
-/* ===== CARDS / BOXES ===== */
-.card {
-  background: rgba(110, 80, 180, 0.25);
-  border-radius: 18px;
-  padding: 24px;
-  margin: 22px auto;
-  box-shadow:
-    0 0 20px rgba(170, 120, 255, 0.35),
-    inset 0 0 14px rgba(255,255,255,0.05);
-  backdrop-filter: blur(10px);
+.search{
+  width:100%;
+  max-width:520px;
+  padding:14px 20px;
+  border-radius:999px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  background:#1a0f35;
+  color:var(--text);
+  box-shadow:0 0 20px var(--glow);
 }
 
-/* ===== BUTTONS ===== */
-button, .btn {
-  display: inline-block;
-  margin: 14px auto;
-  padding: 12px 28px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  background: linear-gradient(135deg, #9b6cff, #6a4cff);
-  color: #fff;
-  box-shadow: 0 0 18px rgba(160,120,255,0.6);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* ========== FAQ ITEMS ========== */
+.faq{
+  cursor:pointer;
+  margin:12px 0;
+}
+.faq-title{
+  padding:14px;
+  border-radius:12px;
+  background:rgba(90,60,160,.25);
+}
+.faq-answer{
+  display:none;
+  padding:12px;
+  color:var(--muted);
 }
 
-button:hover, .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 26px rgba(180,140,255,0.9);
+/* ========== GALLERY ========== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:20px;
+}
+.gallery img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:14px;
+  box-shadow:0 0 20px var(--glow);
+  transition:.3s;
+}
+.gallery img:hover{
+  transform:scale(1.05);
 }
 
-/* ===== GOOGLE-STYLE SEARCH BAR ===== */
-.search-wrap {
-  margin: 30px auto;
-  max-width: 560px;
+/* ========== MEMBERS PAGE ========== */
+.member-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
 }
 
-.search-wrap input {
-  width: 100%;
-  padding: 14px 22px;
-  border-radius: 40px;
-  border: none;
-  outline: none;
-  font-size: 1rem;
-  background: #1a0f33;
-  color: #fff;
-  box-shadow: 0 0 22px rgba(160,120,255,0.6);
+.member-card{
+  background:rgba(100,70,180,.25);
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 0 18px var(--glow);
+}
+.member-card:hover{
+  transform:translateY(-6px);
 }
 
-/* ===== MEMBERS TOGGLE ===== */
-.member-toggle {
-  cursor: pointer;
-  margin-top: 14px;
+/* ========== POPUP ========== */
+.popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:100;
+}
+.popup-content{
+  background:#1a0f35;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 0 30px var(--glow);
 }
 
-.member-list {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s ease;
-}
-
-.member-list.open {
-  max-height: 500px;
-}
-
-/* ===== GALLERY GRID ===== */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 18px;
-  margin-top: 28px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 0 18px rgba(150,110,255,0.5);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.gallery-grid img:hover {
-  transform: scale(1.04);
-  box-shadow: 0 0 30px rgba(180,140,255,0.9);
-}
-
-/* ===== FAQ ===== */
-.faq-item {
-  margin: 14px 0;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  margin: 60px 0 30px;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* ===== MOBILE FIX ===== */
-@media (max-width: 768px) {
-  section {
-    margin: 36px 14px;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 1.9rem;
-  }
+/* ========== ANIMATION ========== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
 }
