@@ -1,151 +1,95 @@
 /* =========================
-   1. SCROLL REVEAL ANIMATION
+   GLOBAL SOUND SYSTEM
 ========================= */
-const revealEls = document.querySelectorAll(".section, .card");
+let soundEnabled = true;
+const clickSound = new Audio("sounds/click.mp3");
+clickSound.volume = 0.6;
 
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add("reveal");
-    }
-  });
-}, { threshold: 0.15 });
-
-revealEls.forEach(el => revealObserver.observe(el));
-
-/* =========================
-   2. FAQ TOGGLE
-========================= */
-document.querySelectorAll(".faq-title").forEach(q => {
-  q.addEventListener("click", () => {
-    const a = q.nextElementSibling;
-    a.style.display = a.style.display === "block" ? "none" : "block";
-  });
-});
-
-/* =========================
-   3. FAQ LIVE SEARCH
-========================= */
-const faqSearch = document.getElementById("faqSearch");
-if (faqSearch) {
-  faqSearch.addEventListener("input", () => {
-    const v = faqSearch.value.toLowerCase();
-    document.querySelectorAll(".faq").forEach(f => {
-      f.style.display = f.innerText.toLowerCase().includes(v)
-        ? "block"
-        : "none";
-    });
-  });
-}
-
-/* =========================
-   4. MEMBER POPUP (members.html)
-========================= */
-function openPopup(name) {
-  const popup = document.getElementById("popup");
-  const nameBox = document.getElementById("popupName");
-  if (!popup || !nameBox) return;
-
-  nameBox.textContent = name;
-  popup.style.display = "flex";
-}
-
-function closePopup() {
-  const popup = document.getElementById("popup");
-  if (popup) popup.style.display = "none";
-}
-
-/* =========================
-   5. MEMBER LIVE SEARCH
-========================= */
-const memberSearch = document.getElementById("memberSearch");
-if (memberSearch) {
-  memberSearch.addEventListener("input", () => {
-    const q = memberSearch.value.toLowerCase();
-    document.querySelectorAll(".member-card").forEach(m => {
-      m.style.display = m.textContent.toLowerCase().includes(q)
-        ? "block"
-        : "none";
-    });
-  });
-}
-
-/* =========================
-   6. GALLERY FULLSCREEN VIEW
-========================= */
-const galleryImgs = document.querySelectorAll(".gallery img");
-
-if (galleryImgs.length) {
-  const overlay = document.createElement("div");
-  overlay.style.cssText = `
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.85);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-  `;
-  const fullImg = document.createElement("img");
-  fullImg.style.maxWidth = "90%";
-  fullImg.style.maxHeight = "90%";
-  fullImg.style.borderRadius = "16px";
-
-  overlay.appendChild(fullImg);
-  document.body.appendChild(overlay);
-
-  galleryImgs.forEach(img => {
-    img.addEventListener("click", () => {
-      fullImg.src = img.src;
-      overlay.style.display = "flex";
-    });
-  });
-
-  overlay.addEventListener("click", () => {
-    overlay.style.display = "none";
-  });
-}
-
-/* =========================
-   7. CLICK BUBBLE EFFECT
-========================= */
 document.addEventListener("click", e => {
-  const b = document.createElement("span");
-  b.className = "click-bubble";
-  b.style.left = e.clientX + "px";
-  b.style.top = e.clientY + "px";
-  document.body.appendChild(b);
-  setTimeout(() => b.remove(), 600);
+  if (!soundEnabled) return;
+  if (e.target.closest("button, .btn, a")) {
+    clickSound.currentTime = 0;
+    clickSound.play();
+  }
+});
+
+/* Toggle sound button */
+const soundBtn = document.querySelector(".sound-toggle");
+if (soundBtn) {
+  soundBtn.addEventListener("click", () => {
+    soundEnabled = !soundEnabled;
+    soundBtn.textContent = soundEnabled ? "🔊 Sound ON" : "🔇 Sound OFF";
+  });
+}
+
+/* =========================
+   WATER RIPPLE EFFECT
+========================= */
+function rippleEffect(e) {
+  const ripple = document.createElement("span");
+  ripple.className = "ripple";
+
+  const rect = e.currentTarget.getBoundingClientRect();
+  ripple.style.left = `${e.clientX - rect.left}px`;
+  ripple.style.top = `${e.clientY - rect.top}px`;
+
+  e.currentTarget.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 700);
+}
+
+document.querySelectorAll(".card, .btn, button").forEach(el => {
+  el.addEventListener("click", rippleEffect);
 });
 
 /* =========================
-   8. PARALLAX BACKGROUND
+   FISH ANIMATION (BUTTONS)
 ========================= */
-window.addEventListener("scroll", () => {
-  document.body.style.backgroundPositionY =
-    window.scrollY * 0.25 + "px";
+document.querySelectorAll(".btn").forEach(btn => {
+  const fish = document.createElement("span");
+  fish.className = "fish";
+  btn.appendChild(fish);
 });
 
 /* =========================
-   9. BACK TO TOP BUTTON
+   FAQ LIVE SEARCH
 ========================= */
-const topBtn = document.createElement("button");
-topBtn.textContent = "↑";
-topBtn.style.cssText = `
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:none;
-  background:#9b7bff;
-  color:#fff;
-  box-shadow:0 0 18px rgba(160,120,255,.7);
-  cursor:pointer;
-  z-index:999;
-`;
-topBtn.onclick = () =>
-  window.scrollTo({ top: 0, behavior: "smooth" });
+const faqInput = document.querySelector("#faqSearch");
+if (faqInput) {
+  faqInput.addEventListener("input", () => {
+    const q = faqInput.value.toLowerCase();
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.style.display = item.textContent.toLowerCase().includes(q)
+        ? "block"
+        : "none";
+    });
+  });
+}
 
-document.body.appendChild(topBtn);
+/* =========================
+   FAQ ACCORDION
+========================= */
+document.querySelectorAll(".faq-item").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("open");
+  });
+});
+
+/* =========================
+   GALLERY FAIL-SAFE
+========================= */
+document.querySelectorAll(".gallery-item img").forEach(img => {
+  img.onerror = () => {
+    img.src = "gallery/placeholder.jpg";
+  };
+});
+
+/* =========================
+   SMOOTH SCROLL
+========================= */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+    document.querySelector(link.getAttribute("href"))
+      ?.scrollIntoView({ behavior: "smooth" });
+  });
+});
