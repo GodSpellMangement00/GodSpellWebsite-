@@ -1,160 +1,220 @@
-/* ========== GLOBAL ========== */
-:root{
-  --bg:#0b0618;
-  --card:rgba(120,80,200,.18);
-  --glow:rgba(160,120,255,.6);
-  --text:#f2eeff;
-  --muted:#bcb4ff;
-  --accent:#9b7bff;
+/* =========================
+   ROOT + GLOBAL
+========================= */
+:root {
+  --bg-dark: #071f17;
+  --bg-card: rgba(20, 60, 45, 0.65);
+  --green-soft: #6fffb0;
+  --green-main: #3ddc97;
+  --aqua: #4deeea;
+  --text-main: #eafff6;
+  --text-muted: #b6eada;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:radial-gradient(circle at top,#24104a,#0b0618 60%);
-  color:var(--text);
-  font-family:Segoe UI,system-ui;
-  line-height:1.6;
+* {
+  box-sizing: border-box;
 }
 
-/* ========== SECTIONS ========== */
-.section{
-  max-width:1000px;
-  margin:40px auto;
-  padding:30px;
-  background:var(--card);
-  border-radius:18px;
-  box-shadow:0 0 30px var(--glow);
-  animation:fadeUp .8s ease;
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top, #0f3b2d, #061712 70%);
+  color: var(--text-main);
+  overflow-x: hidden;
 }
 
-h1,h2{
-  text-align:center;
-  margin-bottom:20px;
-  text-shadow:0 0 15px var(--glow);
+/* =========================
+   SECTIONS + SPACING
+========================= */
+.section {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
-/* ========== CARDS ========== */
-.card{
-  background:rgba(80,50,150,.25);
-  padding:18px;
-  margin:14px 0;
-  border-radius:14px;
-  text-align:center;
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 25px var(--glow);
+.section h2 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: var(--green-soft);
 }
 
-/* ========== BUTTONS ========== */
-button,.btn{
-  display:inline-block;
-  padding:12px 22px;
-  border:none;
-  border-radius:999px;
-  background:linear-gradient(135deg,#7a5cff,#b08cff);
-  color:#fff;
-  cursor:pointer;
-  box-shadow:0 0 18px var(--glow);
-  transition:.3s;
-}
-button:hover,.btn:hover{
-  transform:scale(1.05);
-}
-
-/* ========== FAQ SEARCH (GOOGLE STYLE) ========== */
-.search-wrap{
-  display:flex;
-  justify-content:center;
-  margin-bottom:25px;
+/* =========================
+   CARDS
+========================= */
+.card {
+  background: var(--bg-card);
+  border-radius: 18px;
+  padding: 22px;
+  margin: 20px auto;
+  max-width: 850px;
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.4),
+    inset 0 0 20px rgba(100, 255, 200, 0.05);
+  backdrop-filter: blur(10px);
+  animation: floatCard 6s ease-in-out infinite;
 }
 
-.search{
-  width:100%;
-  max-width:520px;
-  padding:14px 20px;
-  border-radius:999px;
-  border:none;
-  outline:none;
-  font-size:16px;
-  background:#1a0f35;
-  color:var(--text);
-  box-shadow:0 0 20px var(--glow);
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
-/* ========== FAQ ITEMS ========== */
-.faq{
-  cursor:pointer;
-  margin:12px 0;
-}
-.faq-title{
-  padding:14px;
-  border-radius:12px;
-  background:rgba(90,60,160,.25);
-}
-.faq-answer{
-  display:none;
-  padding:12px;
-  color:var(--muted);
+/* =========================
+   BUTTONS – AQUA WATER GLOW
+========================= */
+.btn, button, a.button {
+  display: inline-block;
+  margin: 18px auto;
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: none;
+  background:
+    linear-gradient(120deg, #2fffd5, #3ddc97, #2fffd5);
+  color: #022b1f;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 0 20px rgba(77, 238, 234, 0.6),
+    0 0 40px rgba(61, 220, 151, 0.5);
+
+  animation: aquaGlow 4s linear infinite;
+  transition: transform 0.2s ease;
 }
 
-/* ========== GALLERY ========== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:20px;
-}
-.gallery img{
-  width:100%;
-  height:140px;
-  object-fit:cover;
-  border-radius:14px;
-  box-shadow:0 0 20px var(--glow);
-  transition:.3s;
-}
-.gallery img:hover{
-  transform:scale(1.05);
+/* Water flow */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(255,255,255,0.25), transparent 45%);
+  animation: waterMove 6s linear infinite;
 }
 
-/* ========== MEMBERS PAGE ========== */
-.member-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
+@keyframes aquaGlow {
+  0% { box-shadow: 0 0 18px rgba(77,238,234,.6); }
+  50% { box-shadow: 0 0 35px rgba(77,238,234,.9); }
+  100% { box-shadow: 0 0 18px rgba(77,238,234,.6); }
 }
 
-.member-card{
-  background:rgba(100,70,180,.25);
-  padding:20px;
-  border-radius:16px;
-  text-align:center;
-  cursor:pointer;
-  box-shadow:0 0 18px var(--glow);
-}
-.member-card:hover{
-  transform:translateY(-6px);
+@keyframes waterMove {
+  from { transform: translateX(-20%) rotate(0deg); }
+  to   { transform: translateX(20%) rotate(360deg); }
 }
 
-/* ========== POPUP ========== */
-.popup{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.7);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:100;
-}
-.popup-content{
-  background:#1a0f35;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 0 30px var(--glow);
+/* Click feedback */
+.btn:active, button:active {
+  transform: scale(0.92);
 }
 
-/* ========== ANIMATION ========== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:none}
+/* =========================
+   FAQ – GOOGLE STYLE SEARCH
+========================= */
+.search-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.search-wrap input {
+  width: 100%;
+  max-width: 600px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  font-size: 16px;
+
+  box-shadow:
+    0 0 25px rgba(77,238,234,.6);
+}
+
+/* =========================
+   FAQ ITEMS
+========================= */
+.faq-item {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin: 16px auto;
+  max-width: 900px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 0 18px rgba(77,238,234,.5);
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.gallery-item {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 0 18px rgba(77,238,234,.35);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================
+   MEMBER LINK
+========================= */
+.member-link {
+  margin-top: 15px;
+  display: inline-block;
+  color: var(--aqua);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.member-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   FLOATING PARTICLES (LIFE)
+========================= */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(77,238,234,.25) 2px, transparent 3px);
+  background-size: 60px 60px;
+  animation: drift 20s linear infinite;
+}
+
+@keyframes drift {
+  from { background-position: 0 0; }
+  to   { background-position: 300px 600px; }
 }
