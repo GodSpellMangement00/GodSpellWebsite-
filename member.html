@@ -5,106 +5,92 @@
   <title>GodSpell | Members</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
 
-  <div class="container">
+  <section class="section">
+    <h1>🌿 GodSpell Members</h1>
+    <p>One family. One grind.</p>
+  </section>
 
-    <h1>🌌 GodSpell Members</h1>
-    <p>One family. One grind. One legacy.</p>
-
-    <!-- Search -->
+  <!-- SEARCH -->
+  <section class="section">
     <div class="search-wrap">
       <input
+        id="memberSearch"
         type="text"
-        class="search-box"
-        placeholder="Search member name…"
-        onkeyup="searchMembers(this.value)"
+        placeholder="Search member name..."
       >
     </div>
+  </section>
 
-    <!-- FILTER BUTTONS -->
-    <div class="center">
-      <button onclick="showGroup('leaders')">Leaders</button>
-      <button onclick="showGroup('core')">Core</button>
-      <button onclick="showGroup('trial')">Trial</button>
+  <!-- LEADERS -->
+  <section class="section card">
+    <h2>👑 Leadership</h2>
+
+    <div class="member-grid">
+      <div class="member-card" onclick="openPopup('Sam','Leader')">Sam</div>
+      <div class="member-card" onclick="openPopup('Bronzey','Leader')">Bronzey</div>
+      <div class="member-card" onclick="openPopup('DeadSlot','Developer')">DeadSlot</div>
+      <div class="member-card" onclick="openPopup('Adam','Founder')">Adam</div>
+      <div class="member-card" onclick="openPopup('st_hardrocks','Co-Founder')">st_hardrocks</div>
+      <div class="member-card" onclick="openPopup('TheGod','Moderator')">TheGod</div>
     </div>
+  </section>
 
-    <!-- ===== LEADERS ===== -->
-    <section id="leaders" class="section card">
-      <h2>👑 Leadership</h2>
+  <!-- CORE -->
+  <section class="section card">
+    <h2>🔥 Core Members</h2>
 
-      <div class="member-grid">
-        <div class="member-card" onclick="openPopup('Sam','Leader')">Sam</div>
-        <div class="member-card" onclick="openPopup('Bronzey','Leader')">Bronzey</div>
-        <div class="member-card" onclick="openPopup('DeadSlot','Developer')">DeadSlot</div>
-        <div class="member-card" onclick="openPopup('Adam','Founder')">Adam</div>
-        <div class="member-card" onclick="openPopup('st_hardrocks','Co-Founder')">st_hardrocks</div>
-        <div class="member-card" onclick="openPopup('TheGod','Moderator')">TheGod</div>
-      </div>
-    </section>
+    <div class="member-grid">
+      <div class="member-card" onclick="openPopup('PIPIPPO','Core Member')">PIPIPPO</div>
+      <div class="member-card">BladeOnChoppa</div>
+      <div class="member-card">Minato672</div>
+      <div class="member-card">Devilsking1</div>
+      <div class="member-card">MrBeast_07</div>
+      <div class="member-card">Slayerknight69</div>
+      <div class="member-card">cottoncloud01</div>
+      <div class="member-card">Pro_Dreamy</div>
+      <div class="member-card">sir_spectro</div>
+      <div class="member-card">Eight</div>
+      <div class="member-card">walidwolly09</div>
+    </div>
+  </section>
 
-    <!-- ===== CORE MEMBERS ===== -->
-    <section id="core" class="section card">
-      <h2>🔥 Core Members</h2>
+  <!-- TRIAL -->
+  <section class="section card">
+    <h2>🌱 Trial Members</h2>
 
-      <div class="member-grid">
-        <div class="member-card" onclick="openPopup('PIPIPPO','Core Member')">PIPIPPO</div>
-        <div class="member-card" onclick="openPopup('BladeOnChoppa','Core Member')">BladeOnChoppa</div>
-        <div class="member-card" onclick="openPopup('Minato672','Core Member')">Minato672</div>
-        <div class="member-card" onclick="openPopup('Devilsking1','Core Member')">Devilsking1</div>
-        <div class="member-card" onclick="openPopup('MrBeast_07','Core Member')">MrBeast_07</div>
-        <div class="member-card" onclick="openPopup('Slayerknight69','Core Member')">Slayerknight69</div>
-        <div class="member-card" onclick="openPopup('cottoncloud01','Core Member')">cottoncloud01</div>
-        <div class="member-card" onclick="openPopup('Pro_Dreamy','Core Member')">Pro_Dreamy</div>
-        <div class="member-card" onclick="openPopup('sir_spectro','Core Member')">sir_spectro</div>
-        <div class="member-card" onclick="openPopup('Eight','Core Member')">Eight</div>
-        <div class="member-card" onclick="openPopup('walidwolly09','Core Member')">walidwolly09</div>
-      </div>
-    </section>
+    <div class="member-grid">
+      <div class="member-card">VannahX</div>
+      <div class="member-card">MoonSukes</div>
+      <div class="member-card">blazacooks</div>
+      <div class="member-card">BarGaming_</div>
+      <div class="member-card">KrishnaYt_129</div>
+      <div class="member-card">Slayer_of_Terra</div>
+    </div>
+  </section>
 
-    <!-- ===== TRIAL MEMBERS ===== -->
-    <section id="trial" class="section card">
-      <h2>🌱 Trial Members</h2>
+  <!-- APPLY -->
+  <section class="section">
+    <a href="apply.html" class="btn">Apply to become Core Member</a>
+  </section>
 
-      <div class="member-grid">
-        <div class="member-card" onclick="openPopup('VannahX','Trial Member')">VannahX</div>
-        <div class="member-card" onclick="openPopup('MoonSukes','Trial Member')">MoonSukes</div>
-        <div class="member-card" onclick="openPopup('blazacooks','Trial Member')">blazacooks</div>
-        <div class="member-card" onclick="openPopup('BarGaming_','Trial Member')">BarGaming_</div>
-        <div class="member-card" onclick="openPopup('KrishnaYt_129','Trial Member')">KrishnaYt_129</div>
-        <div class="member-card" onclick="openPopup('Slayer_of_Terra','Trial Member')">Slayer_of_Terra</div>
-      </div>
-    </section>
-
-    <!-- APPLY BUTTON -->
-    <section class="section">
-      <a href="apply.html" class="member-info-btn">
-        Apply to become a Core Member
-      </a>
-    </section>
-
-    <!-- BACK -->
-    <footer>
-      <a href="index.html" class="btn">← Back to Home</a>
-    </footer>
-
-  </div>
+  <!-- BACK -->
+  <footer>
+    <a href="index.html" class="btn">← Back to Home</a>
+  </footer>
 
   <!-- POPUP -->
-  <div id="memberPopup" class="popup">
-    <div class="popup-box">
+  <div id="popup" class="popup">
+    <div class="popup-content">
       <h3 id="popupName"></h3>
       <p id="popupRole"></p>
-      <button onclick="closePopup()">Close</button>
+      <button class="btn" onclick="closePopup()">Close</button>
     </div>
   </div>
 
-  <!-- JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
